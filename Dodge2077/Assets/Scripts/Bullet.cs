@@ -22,6 +22,11 @@ public class Bullet : MonoBehaviour
         
         //Init(1, 1, new Vector3(0, 1f, 0)); // 위로 데미지 1, 관통력 1, 속도와 방향 위로 1만큼나감
 
+
+    }
+
+    public void OnAble()
+    {
         
     }
 

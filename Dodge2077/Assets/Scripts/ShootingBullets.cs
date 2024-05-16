@@ -42,6 +42,7 @@ public class ShootingBullets : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.instance.PlaySFX("Bullet", 0.01f);
         GameObject bullet = GameManager.Instance.pool.Get(0); // case 0 이 아니기에 prefabId에 총알번호가 들어감
         bullet.transform.position = transform.position;
 

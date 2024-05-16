@@ -34,7 +34,8 @@ public class Player : MonoBehaviour
             // Skill Start Animation
             player_Skill1.SetActive(true);
             player_Skill2.SetActive(true);
-            //StartCoroutine(player_Skill1.GetComponent<SkillTriangle>().Firing(GetComponent<ShootingBullets>().coolTime));
+            player_Skill1.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
+            player_Skill2.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
         }
 
 
@@ -53,14 +54,19 @@ public class Player : MonoBehaviour
     void Pressing()
     { 
         isPressing = true;
-        //Debug.Log("asda");
+        
     }
     void NotPressing()
     {
         isPressing = false;
         timeWatch = false;
         player_Skill1.SetActive(false);
+        player_Skill1.GetComponent<SkillTriangle>().StopFire();
+
+
         player_Skill2.SetActive(false);
+        player_Skill2.GetComponent<SkillTriangle>().StopFire();
+
     }
 
 

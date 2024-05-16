@@ -10,12 +10,20 @@ public class SkillTriangle : MonoBehaviour
     public ShootingBullets _shootingBullets;
     public float nextFire;
     public float fireRate = 0.5f;
+    public Coroutine coroutine;
 
     // Update is called once per frame
     void Start()
     {
         //StartCoroutine(Firing(_shootingBullets.coolTime));
     }
+
+    public void StartFire(float cooltime)
+    {
+        coroutine = StartCoroutine(Firing(cooltime));
+    }
+
+
 
     public IEnumerator Firing(float coolTime)
     {
@@ -26,19 +34,24 @@ public class SkillTriangle : MonoBehaviour
         }
     }
 
-
-
-    private void Update()
+    public void StopFire()
     {
-        if (Time.time > nextFire)
-        {
-            nextFire = Time.time + fireRate;
-            Shooting();
-        }
+        StopCoroutine(coroutine);
     }
+
+
+    //private void Update()
+    //{
+     //   if (Time.time > nextFire)
+     //   {
+     //       nextFire = Time.time + fireRate;
+     //       Shooting();
+     //   }
+    //}
 
     private void Shooting()
     {
+        AudioManager.instance.PlaySFX("Bullet", 0.01f);
         GameObject bullet = GameManager.Instance.pool.Get(0); // case 0 이 아니기에 prefabId에 총알번호가 들어감
         bullet.transform.position = transform.position;
 
