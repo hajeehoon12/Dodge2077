@@ -276,7 +276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 4727090042600959549, guid: 1dee072ec286e7644a7446a56c2bd214, type: 3}
   _poolManager: {fileID: 1073964346}
-  coolTime: 1
+  _damage: 1
+  _per: 1
+  _bulletSpeed: 1
+  coolTime: 0.1
 --- !u!1 &1073964346
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +405,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.6, z: 1}
+  m_LocalScale: {x: 2.0806842, y: 2.560842, z: 1.6005262}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
