@@ -279,7 +279,7 @@ MonoBehaviour:
   _damage: 1
   _per: 1
   _bulletSpeed: 1
-  coolTime: 0.1
+  coolTime: 0.2
 --- !u!1 &1073964346
 GameObject:
   m_ObjectHideFlags: 0

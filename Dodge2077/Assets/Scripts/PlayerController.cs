@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
 
     private bool moveCheck; // isMoving?
 
-
+    int runSpeed;
+    float rotateAdd;
 
 
     Transform playerPos;
@@ -31,60 +32,71 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Move(); // get moveO
-       
-
     }
     private void Update()
     {
 
     }
 
-    void Move()
+    void Move() // basic Move
     {
         
         Vector3 movePosition = Vector3.zero;
-        
+        runSpeed = 1;
+        float RotateAdd = 0;
         moveCheck = false;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            runSpeed = 2;
+            RotateAdd = 10;
+        }
+
 
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            movePosition += Vector3.left;
+            if (playerPos.position.x < -2.4) return; // Left Side Screen
+
+            movePosition += Vector3.left * runSpeed;
             sprites.flipX = true;
             moveCheck = true;
-            playerPos.localEulerAngles = new Vector3(0, -50, 0);
+            playerPos.localEulerAngles = new Vector3(0, -50 - RotateAdd, 0); // left rotation
         }
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            movePosition += Vector3.right;
+            if (playerPos.position.x > 2.4) return; // Right Side Screen 
+
+            movePosition += Vector3.right * runSpeed;
             sprites.flipX = false;
             moveCheck = true;
-            playerPos.localEulerAngles = new Vector3(0, 50, 0);
+            playerPos.localEulerAngles = new Vector3(0, 50 + RotateAdd, 0); // right rotation
         }
         else
         {
-            playerPos.localEulerAngles = new Vector3(0, 0, 0);
+            playerPos.localEulerAngles = new Vector3(0, 0, 0); // init rotation when no input
         }
         if (Input.GetAxisRaw("Vertical") < 0)
         {
+            if (playerPos.position.y < -4.5) return;
+
             movePosition += Vector3.down;
             //moveCheck = true;
 
         }
         else if (Input.GetAxisRaw("Vertical") > 0)
         {
+            if (playerPos.position.y > 4.7) return;
+
             movePosition += Vector3.up;
             //moveCheck = true;
         }
 
         //if (moveCheck) Debug.Log("isMoving!!");
 
-        transform.position += movePosition * moveSpeed * Time.deltaTime;
+        transform.position += movePosition * moveSpeed * Time.fixedDeltaTime;
     }
 
-    void GetInfo()
-    { 
-        
-    }
+    
     
 
 
