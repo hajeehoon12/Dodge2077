@@ -32,7 +32,8 @@ public class Bullet : MonoBehaviour
 
     public void Update()
     {
-        if (transform.position.y > 6)
+        
+        if (transform.position.y > 6 || Mathf.Abs(transform.position.x) > 6 )
         { 
             gameObject.SetActive(false);
         }
@@ -45,7 +46,7 @@ public class Bullet : MonoBehaviour
         this.per = per;
 
         if (per >= 0) {
-            rigid.velocity = dir * 15f ; // ÃÑ¾Ë ¼Óµµ =15f
+            rigid.velocity = transform.up * 15f ; // ÃÑ¾Ë ¼Óµµ =15f
         }
     }
 

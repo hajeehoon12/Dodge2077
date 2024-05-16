@@ -26,11 +26,12 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         myAudioSource = GetComponent<AudioSource>();
+        instance = this;
     }
 
     private void Start()
     {
-        if(instance == null) instance = this;
+        
     }
 
     public void PlayBGM(string p_bgmName)

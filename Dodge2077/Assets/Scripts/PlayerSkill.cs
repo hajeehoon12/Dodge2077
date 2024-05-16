@@ -59,7 +59,9 @@ public class Player : MonoBehaviour
                 GameObject bullet = GameManager.Instance.pool.Get(0); // case 0 이 아니기에 prefabId에 총알번호가 들어감
                 bullet.transform.position = transform.position;
 
-                bullet.transform.localEulerAngles = new Vector3(0, 18 * i, 0); // 총알의 회전값
+
+                bullet.transform.localEulerAngles = new Vector3(0, 0, i * 18-90); // 총알의 회전값
+                bullet.transform.position += bullet.transform.up * 1.5f;
                                                                           //Debug.Log("test");
                 bullet.GetComponent<Bullet>().Init(10, 5, new Vector3(0, 1.5f, 0)); // 총알 데미지, 관통력, 속력
             }
