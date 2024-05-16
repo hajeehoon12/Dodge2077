@@ -49,6 +49,24 @@ public class Player : MonoBehaviour
             NotPressing();
         }
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            AudioManager.instance.PlaySFX("MachineGun", 0.1f);
+            ShakeCamera.instance.MakeCameraShake(1f, 0.1f, 0.1f);
+
+            for (int i = 0; i < 10; i++)
+            {
+                GameObject bullet = GameManager.Instance.pool.Get(0); // case 0 이 아니기에 prefabId에 총알번호가 들어감
+                bullet.transform.position = transform.position;
+
+                bullet.transform.localEulerAngles = new Vector3(0, 18 * i, 0); // 총알의 회전값
+                                                                          //Debug.Log("test");
+                bullet.GetComponent<Bullet>().Init(10, 5, new Vector3(0, 1.5f, 0)); // 총알 데미지, 관통력, 속력
+            }
+
+
+        }
+
     }
 
     void Pressing()

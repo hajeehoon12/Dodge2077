@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShakeCamera : MonoBehaviour
 {
 
+    public static ShakeCamera instance;
+
     // 진동할 카메라의 transform
     public Transform shakeCamera;
     // 회전시킬 것인지를 판단할 변수
@@ -14,6 +16,12 @@ public class ShakeCamera : MonoBehaviour
     public Quaternion originRot;
 
     // Use this for initialization
+
+    private void Awake()
+    {
+        if(instance == null) instance = this;
+    }
+
     void Start()
     {
         // 초깃값 저장

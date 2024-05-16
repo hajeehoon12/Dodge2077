@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        moveSpeed = 10f;
+      
         
     }
 
