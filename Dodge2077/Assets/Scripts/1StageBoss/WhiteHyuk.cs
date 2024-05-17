@@ -11,14 +11,21 @@ public class WhiteHyuk : MonoBehaviour
     public GameObject Meteor; // skill object
     public Transform _player;
     GameObject chasingBullet;
-    public GameObject freezeCircle;
+    public GameObject InstantFreezeCircle;
+    private GameObject FreezeCircle; // freeze Circle prefab
     public GameObject freezeHit;
+    public GameObject Portal; // portal prefab
+
+    private void Awake()
+    {
+        FreezeCircle=Instantiate(InstantFreezeCircle);
+    }
 
 
     private void Start()
     {
         Meteor.SetActive(false);   
-        freezeCircle.SetActive(false);
+        FreezeCircle.SetActive(false);
         freezeHit.SetActive(false);
     }
 
@@ -29,24 +36,63 @@ public class WhiteHyuk : MonoBehaviour
         switch (patternNum%4)
         {
             case 0:
-                
-                Freezing();
+                AdvancedChasing();
                 break;
             case 1:
-                CrazsyShot();
+                Freezing();
                 break;
             case 2:
                 StoneShot();
                 break;
             case 3:
-                AdvancedChasing();
+                CreatePortal();
                 break;
             default:
+                CrazsyShot();
                 break;
         }
 
         patternNum++;
     }
+
+    private void CreatePortal()
+    {
+        AudioManager.instance.PlaySFX("PortalMagic", 0.3f);
+        StartCoroutine(CallPortal(2.5f));
+    }
+
+
+    public IEnumerator CallPortal(float duration) // Working to chase
+    {
+        float time = 0.0f;
+        int count = 0;
+        float waitTime = 0.2f;
+
+        while (time < 1.0f)
+        {
+            time += waitTime / duration;
+
+
+            GameObject ranPortal = Instantiate(Portal, new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(2.5f, 4.5f), 0), Quaternion.identity);
+            GameObject bullet = GameManager.Instance.pool.Get(3);
+            bullet.transform.position = ranPortal.transform.position;
+
+            Vector3 dir = _player.position - ranPortal.transform.position;
+
+            //ranPortal.transform.rotation = Quaternion.LookRotation(dir);
+
+            bullet.GetComponent<Bullet>().rigid.velocity = dir * 1.5f;
+            Destroy(ranPortal, 1f); // Destroy after 1sec
+            count++;
+            yield return null;
+            yield return new WaitForSeconds(waitTime); // wait 3 sec
+            
+            
+        }
+    }
+
+
+
 
     private void Freezing()
     {
@@ -55,11 +101,12 @@ public class WhiteHyuk : MonoBehaviour
         freezeHit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         freezeHit.transform.position = new Vector3(Random.Range(-1,2)* 2 , 4, 0);
         Random.Range(-1, 2);
-        freezeCircle.SetActive(true);
+        FreezeCircle.SetActive(true);
         
 
         Invoke("FreezeMove", 1f);
-        StartCoroutine(FreezeTime(8f));
+        AudioManager.instance.PlaySFX("FreezeMagic");
+        StartCoroutine(FreezeTime(7.8f));
     }
 
     private void FreezeMove()
@@ -79,8 +126,8 @@ public class WhiteHyuk : MonoBehaviour
 
             yield return null;
         }
-        freezeCircle.SetActive(false);
-        freezeCircle.SetActive(false);
+        FreezeCircle.SetActive(false);
+        FreezeCircle.SetActive(false);
         _player.GetComponent<PlayerController>().ChangeSpeed(3f);
     }
 
@@ -93,7 +140,7 @@ public class WhiteHyuk : MonoBehaviour
 
         chasingBullet.transform.localEulerAngles = new Vector3(0, 0, 0); // 총알의 회전값
         //Debug.Log("test");
-
+        AudioManager.instance.PlaySFX("ChasingMagic");
         StartCoroutine(ChasingTime(6f));
 
         //
@@ -104,6 +151,7 @@ public class WhiteHyuk : MonoBehaviour
 
     public IEnumerator ChasingTime(float duration) // Working to chase
     {
+        yield return new WaitForSeconds(0.3f);
         float time = 0.0f;
 
         while (time < 1.0f)
@@ -154,9 +202,4 @@ public class WhiteHyuk : MonoBehaviour
     {
         Meteor.SetActive(false);
     }
-
-    
-
-
-
 }

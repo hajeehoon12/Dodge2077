@@ -52,6 +52,9 @@ public class BossRotate : MonoBehaviour
             //call DarkHyuk Boss Pattern
         }
     }
+
+ 
+
     // UniTask
     private IEnumerator RotateBoss(float RotateTime) // Boss Rotate and call Pattern
     {
