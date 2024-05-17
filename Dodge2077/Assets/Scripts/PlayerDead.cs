@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerDead : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Game Over!!");
+        Debug.Log("Collision Name : " + collision.gameObject.name);
     }
 
     private void OnParticleCollision(GameObject other)

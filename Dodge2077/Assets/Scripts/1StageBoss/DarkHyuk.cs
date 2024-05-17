@@ -5,10 +5,11 @@ using UnityEngine;
 public class DarkHyuk : MonoBehaviour
 {
     private int patternNum = 0;
+    public Transform _player;
     public void CallDark()
     {
 
-        switch (patternNum)
+        switch (patternNum%2)
         {
             case 0:
                 ShootStraight();
@@ -39,6 +40,8 @@ public class DarkHyuk : MonoBehaviour
             bullet.GetComponent<Bullet>().Init(1, 1, new Vector3(0, 3, 0)); // 총알 데미지, 관통력, 속력
         }
     }
+
+    
 
 
 }
