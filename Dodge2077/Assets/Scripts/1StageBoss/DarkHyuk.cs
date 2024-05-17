@@ -25,7 +25,7 @@ public class DarkHyuk : MonoBehaviour
         patternNum++;
     }
 
-    private void ShootStraight()
+    private void ShootStraight() // Straight Shot
     {
 
         for (int i = 0; i < 5; i++)
@@ -42,7 +42,7 @@ public class DarkHyuk : MonoBehaviour
         }
     }
 
-    private void ShootChasing()
+    private void ShootChasing() // half - chasing shot for 15 shots
     {
         for (int i = 0; i < 15; i++)
         {

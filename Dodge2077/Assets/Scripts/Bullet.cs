@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
     public void Update()
     {
         
-        if (transform.position.y > 10 || Mathf.Abs(transform.position.x) > 10 )
+        if (Mathf.Abs(transform.position.y) > 10 || Mathf.Abs(transform.position.x) > 10 )
         { 
             gameObject.SetActive(false);
         }
