@@ -9,13 +9,17 @@ public class DarkHyuk : MonoBehaviour
     public void CallDark()
     {
 
-        switch (patternNum%2)
+        switch (patternNum%3)
         {
             case 0:
-                ShootChasing();
+                CrazsyShot();
                 break;
             case 1:
                 ShootStraight();
+                break;
+            case 2:
+                ShootChasing();
+                
                 break;
             default:
                 break;
@@ -50,7 +54,7 @@ public class DarkHyuk : MonoBehaviour
         }
     }
 
-    private void ShootingStar()
+    private void ShootingStar() // assistant 15 shots
     {
         AudioManager.instance.PlaySFX("Bullet", 0.01f);
         GameObject bullet = GameManager.Instance.pool.Get(4);
@@ -60,7 +64,24 @@ public class DarkHyuk : MonoBehaviour
         bullet.GetComponent<Bullet>().rigid.velocity = shootDir*1.5f;
     }
 
-   
+    private void CrazsyShot() // 20 shots for arc
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            AudioManager.instance.PlaySFX("Laser");
+
+            GameObject bullet = GameManager.Instance.pool.Get(4);
+
+            bullet.transform.position = transform.position;
+
+            bullet.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+            bullet.transform.localEulerAngles = new Vector3(0, 0, 90 + i * 9); // 총알의 회전값
+                                                                               //Debug.Log("test");
+            bullet.GetComponent<Bullet>().Init(1, 1, 0.7f); // 총알 데미지, 관통력, 속력
+        }
+    }
+
 
 
 

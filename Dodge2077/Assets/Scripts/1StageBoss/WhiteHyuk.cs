@@ -11,22 +11,24 @@ public class WhiteHyuk : MonoBehaviour
     public GameObject Meteor; // skill object
     public Transform _player;
     GameObject chasingBullet;
+    public GameObject freezeCircle;
 
 
 
     private void Start()
     {
         Meteor.SetActive(false);   
+        freezeCircle.SetActive(false);
     }
 
 
     public void CallWhite()
     {
 
-        switch (patternNum%2)
+        switch (patternNum%4)
         {
             case 0:
-                AdvancedChasing();
+                Freezing();
                 break;
             case 1:
                 CrazsyShot();
@@ -34,13 +36,37 @@ public class WhiteHyuk : MonoBehaviour
             case 2:
                 StoneShot();
                 break;
-
+            case 3:
+                AdvancedChasing();
+                break;
             default:
                 break;
         }
 
         patternNum++;
     }
+
+    private void Freezing()
+    {
+        freezeCircle.SetActive(true);
+        StartCoroutine(FreezeTime(8f));
+    }
+    public IEnumerator FreezeTime(float duration) // Working to chase
+    {
+        float time = 0.0f;
+
+        while (time < 1.0f)
+        {
+            time += Time.deltaTime / duration;
+
+            _player.GetComponent<PlayerController>().ChangeSpeed(1f);
+
+            yield return null;
+        }
+        freezeCircle.SetActive(false);
+        _player.GetComponent<PlayerController>().ChangeSpeed(3f);
+    }
+
 
     private void AdvancedChasing() // Player Chasing shot for 6 seconds
     {

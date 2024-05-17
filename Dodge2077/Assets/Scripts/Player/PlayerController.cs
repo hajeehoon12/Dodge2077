@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
             runSpeed = 1.5f;
             rotateAdd = 10;
         }
+        
 
 
         if (Input.GetAxisRaw("Horizontal") < 0)
@@ -96,8 +97,9 @@ public class PlayerController : MonoBehaviour
         transform.position += movePosition * moveSpeed * Time.fixedDeltaTime;
     }
 
-    
-    
-
+    public void ChangeSpeed(float speed)
+    { 
+        moveSpeed = speed;
+    }
 
 }
