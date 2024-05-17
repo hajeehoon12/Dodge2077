@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BossHPBar : MonoBehaviour
+{
+    [SerializeField] private GameObject bossHPBar = null;
+
+    private float BossMaxHP;
+    private float BossCurrentHP;
+
+    void Start()
+    {
+        Invoke("StartBossHPBar", 2.0f);
+        bossHPBar.SetActive(false);
+    }
+
+    void Update()
+    {
+        
+    }
+
+    public void StartBossHPBar()
+    {
+        bossHPBar.SetActive(true);
+        Debug.Log("Start");
+    }
+
+    //보스가 데미지를 받을 때 ( 매개변수에 음수를 넣어 체력 회복용도로도 가능 )
+    public void TakeDamage(float damage)
+    {
+        BossCurrentHP -= damage;
+        if (BossCurrentHP < 0.0f) BossCurrentHP = 0.0f;
+        else if (BossCurrentHP > BossMaxHP) BossCurrentHP = BossMaxHP;
+    }
+}
