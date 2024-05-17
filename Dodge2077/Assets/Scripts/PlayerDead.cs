@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerDead : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision Name : " + collision.gameObject.name);
+        Debug.Log("Collider Name : " + other.gameObject.name);
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("I crashed in particle");
+        Debug.Log("Particle Name :" + other.gameObject.name);
     }
 }

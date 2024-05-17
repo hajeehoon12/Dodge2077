@@ -12,13 +12,14 @@ public class WhiteHyuk : MonoBehaviour
     public Transform _player;
     GameObject chasingBullet;
     public GameObject freezeCircle;
-
+    public GameObject freezeHit;
 
 
     private void Start()
     {
         Meteor.SetActive(false);   
         freezeCircle.SetActive(false);
+        freezeHit.SetActive(false);
     }
 
 
@@ -28,6 +29,7 @@ public class WhiteHyuk : MonoBehaviour
         switch (patternNum%4)
         {
             case 0:
+                
                 Freezing();
                 break;
             case 1:
@@ -48,9 +50,23 @@ public class WhiteHyuk : MonoBehaviour
 
     private void Freezing()
     {
+        freezeHit.SetActive(true);
+        freezeHit.GetComponent<Rigidbody2D>().gravityScale = 0;
+        freezeHit.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        freezeHit.transform.position = new Vector3(Random.Range(-1,2)* 2 , 4, 0);
+        Random.Range(-1, 2);
         freezeCircle.SetActive(true);
+        
+
+        Invoke("FreezeMove", 1f);
         StartCoroutine(FreezeTime(8f));
     }
+
+    private void FreezeMove()
+    {
+        freezeHit.GetComponent<Rigidbody2D>().gravityScale = 2;
+    }
+
     public IEnumerator FreezeTime(float duration) // Working to chase
     {
         float time = 0.0f;
@@ -63,6 +79,7 @@ public class WhiteHyuk : MonoBehaviour
 
             yield return null;
         }
+        freezeCircle.SetActive(false);
         freezeCircle.SetActive(false);
         _player.GetComponent<PlayerController>().ChangeSpeed(3f);
     }
