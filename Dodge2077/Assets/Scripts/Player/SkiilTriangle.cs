@@ -57,7 +57,7 @@ public class SkillTriangle : MonoBehaviour
 
         bullet.transform.localEulerAngles = new Vector3(0, 0, 0); // 총알의 회전값
         
-        bullet.GetComponent<Bullet>().Init(_shootingBullets._damage, _shootingBullets._per, new Vector3(0, _shootingBullets._bulletSpeed, 0)); // 총알 데미지, 관통력, 속력
+        bullet.GetComponent<Bullet>().Init(_shootingBullets._damage, _shootingBullets._per, 1); // 총알 데미지, 관통력, 속력
     }
 
 

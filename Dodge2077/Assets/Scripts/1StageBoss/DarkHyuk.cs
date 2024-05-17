@@ -12,9 +12,10 @@ public class DarkHyuk : MonoBehaviour
         switch (patternNum%2)
         {
             case 0:
-                ShootStraight();
+                ShootChasing();
                 break;
             case 1:
+                ShootStraight();
                 break;
             default:
                 break;
@@ -37,11 +38,31 @@ public class DarkHyuk : MonoBehaviour
 
             bullet.transform.localEulerAngles = new Vector3(0, 0, 180); // 총알의 회전값
                                                                         //Debug.Log("test");
-            bullet.GetComponent<Bullet>().Init(1, 1, new Vector3(0, 3, 0)); // 총알 데미지, 관통력, 속력
+            bullet.GetComponent<Bullet>().Init(1, 1, 1); // 총알 데미지, 관통력, 속력
         }
     }
 
-    
+    private void ShootChasing()
+    {
+        for (int i = 0; i < 15; i++)
+        {
+            Invoke("ShootingStar", i*0.1f);
+        }
+    }
+
+    private void ShootingStar()
+    {
+        AudioManager.instance.PlaySFX("Bullet", 0.01f);
+        GameObject bullet = GameManager.Instance.pool.Get(4);
+        bullet.transform.position = transform.position;
+        Vector3 shootDir = _player.transform.position - bullet.transform.position;
+
+        bullet.GetComponent<Bullet>().rigid.velocity = shootDir*1.5f;
+    }
+
+   
+
+
 
 
 }

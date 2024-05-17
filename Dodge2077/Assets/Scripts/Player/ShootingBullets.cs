@@ -48,7 +48,7 @@ public class ShootingBullets : MonoBehaviour
 
         bullet.transform.localEulerAngles = new Vector3(0, 0, 0); // 총알의 회전값
         //Debug.Log("test");
-        bullet.GetComponent<Bullet>().Init(_damage, _per, new Vector3(0,_bulletSpeed,0)); // 총알 데미지, 관통력, 속력
+        bullet.GetComponent<Bullet>().Init(_damage, _per, 1); // 총알 데미지, 관통력, 속력
     }
 
 }

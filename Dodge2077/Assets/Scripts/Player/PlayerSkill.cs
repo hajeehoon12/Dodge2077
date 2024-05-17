@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
                 bullet.transform.localEulerAngles = new Vector3(0, 0, i * 18-90); // 총알의 회전값
                 bullet.transform.position += bullet.transform.up * 1.5f;
                                                                           //Debug.Log("test");
-                bullet.GetComponent<Bullet>().Init(10, 5, new Vector3(0, 1.5f, 0)); // 총알 데미지, 관통력, 속력
+                bullet.GetComponent<Bullet>().Init(10, 5, 1); // 총알 데미지, 관통력, 속력
             }
 
 

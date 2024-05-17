@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public int per;
 
 
-    Rigidbody2D rigid;
+    public Rigidbody2D rigid;
     PlayerController _bulletSpawnPos; // 총알을 쏘는 위치
 
     void Awake()
@@ -33,20 +33,20 @@ public class Bullet : MonoBehaviour
     public void Update()
     {
         
-        if (transform.position.y > 6 || Mathf.Abs(transform.position.x) > 6 )
+        if (transform.position.y > 10 || Mathf.Abs(transform.position.x) > 10 )
         { 
             gameObject.SetActive(false);
         }
     }
 
 
-    public void Init(float damage, int per, Vector3 dir) // dir = 속도 per = 관통
+    public void Init(float damage, int per, float velocity) // dir = 속도 per = 관통
     {
         this.damage = damage; // this는 bullet의 데미지 오른쪽은 함수의 데미지
         this.per = per;
 
         if (per >= 0) {
-            rigid.velocity = transform.up * 15f ; // 총알 속도 =15f
+            rigid.velocity = transform.up * 15 * velocity ; // 총알 속도 =15f
         }
     }
 
