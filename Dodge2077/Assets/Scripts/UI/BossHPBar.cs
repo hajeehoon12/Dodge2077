@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHPBar : MonoBehaviour
 {
     [SerializeField] private GameObject bossHPBar = null;
+    [SerializeField] private Slider hpBarSlider = null;
 
     private float BossMaxHP;
     private float BossCurrentHP;
@@ -13,6 +15,10 @@ public class BossHPBar : MonoBehaviour
     {
         Invoke("StartBossHPBar", 2.0f);
         bossHPBar.SetActive(false);
+
+        //Temp
+        BossMaxHP = 100.0f;         //여기 임의로 설정
+        BossCurrentHP = BossMaxHP;
     }
 
     void Update()
@@ -32,5 +38,11 @@ public class BossHPBar : MonoBehaviour
         BossCurrentHP -= damage;
         if (BossCurrentHP < 0.0f) BossCurrentHP = 0.0f;
         else if (BossCurrentHP > BossMaxHP) BossCurrentHP = BossMaxHP;
+        SetHPBar();
+    }
+
+    public void SetHPBar()
+    {
+        hpBarSlider.value = BossCurrentHP / BossMaxHP;
     }
 }

@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossHPBar: {fileID: 277941209207172331}
+  hpBarSlider: {fileID: 7264072156211091662}
 --- !u!1 &4451387812313549125
 GameObject:
   m_ObjectHideFlags: 0
