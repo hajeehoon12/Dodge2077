@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DarkHyukSkill
+  m_Name: WhiteHyukDead
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: ca48e425f2252844dbc4b140f540ec2e, type: 3}
-    - time: 0.22222222
-      value: {fileID: 21300000, guid: 3ec05692d67f8b6478746e8f07f11b07, type: 3}
+      value: {fileID: 21300000, guid: 870f3bfdcd5b29a4f8791fcfaedc8a2e, type: 3}
+    - time: 0.375
+      value: {fileID: 21300000, guid: 870f3bfdcd5b29a4f8791fcfaedc8a2e, type: 3}
+    - time: 0.875
+      value: {fileID: 21300000, guid: 870f3bfdcd5b29a4f8791fcfaedc8a2e, type: 3}
+    - time: 1.25
+      value: {fileID: 21300000, guid: 993775f0042c06e40bafb9800bedf8a6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 36
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,14 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: ca48e425f2252844dbc4b140f540ec2e, type: 3}
-    - {fileID: 21300000, guid: 3ec05692d67f8b6478746e8f07f11b07, type: 3}
+    - {fileID: 21300000, guid: 870f3bfdcd5b29a4f8791fcfaedc8a2e, type: 3}
+    - {fileID: 21300000, guid: 870f3bfdcd5b29a4f8791fcfaedc8a2e, type: 3}
+    - {fileID: 21300000, guid: 870f3bfdcd5b29a4f8791fcfaedc8a2e, type: 3}
+    - {fileID: 21300000, guid: 993775f0042c06e40bafb9800bedf8a6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.25
+    m_StopTime: 1.375
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
