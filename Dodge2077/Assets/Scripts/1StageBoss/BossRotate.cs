@@ -21,8 +21,9 @@ public class BossRotate : MonoBehaviour
 
     public void Start()
     {
-        transform.DOMove(new Vector3(0, 2.5f, 0), 3f);
-        Invoke("StartRotate", 5f);
+        transform.DOMove(new Vector3(0, 2.3f, 0), 3f);
+
+        Invoke("StartRotate", 3f);
     }
 
     private void StartRotate()
@@ -41,7 +42,7 @@ public class BossRotate : MonoBehaviour
         isPatternEnd = true;
     }
     // UniTask
-    private IEnumerator RotateBoss(float RotateTime)
+    private IEnumerator RotateBoss(float RotateTime) // Boss Rotate and call Pattern
     {
         while (true)
         {
@@ -53,14 +54,14 @@ public class BossRotate : MonoBehaviour
 
                 isRotate = true;
                 yield return new WaitUntil(() => isPatternEnd);
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(3f);
             }
             else
             {       
                 transform.DORotate(secondRotate, 1).onComplete += HyukPattern;
                 isRotate = false;
                 yield return new WaitUntil(() => isPatternEnd);
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(3f);
             }
         }
     }
