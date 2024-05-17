@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 
             for (int i = 0; i < 10; i++)
             {
-                GameObject bullet = GameManager.Instance.pool.Get(0); // case 0 이 아니기에 prefabId에 총알번호가 들어감
+                GameObject bullet = GameManager.Instance.pool.Get(1); // case 0 이 아니기에 prefabId에 총알번호가 들어감
                 bullet.transform.position = transform.position;
 
 
