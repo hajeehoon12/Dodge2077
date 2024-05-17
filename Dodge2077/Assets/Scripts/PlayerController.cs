@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed; // Player movement Speed
 
-    private bool moveCheck; // isMoving?
+    //private bool moveCheck; // isMoving?
 
     float runSpeed;
     float rotateAdd;
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movePosition = Vector3.zero;
         runSpeed = 1;
         rotateAdd = 0;
-        moveCheck = false;
+        //moveCheck = false;
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
             movePosition += Vector3.left * runSpeed;
             sprites.flipX = true;
-            moveCheck = true;
+            //moveCheck = true;
             playerPos.localEulerAngles = new Vector3(0, -50 - rotateAdd, 0); // left rotation
         }
         else if (Input.GetAxisRaw("Horizontal") > 0)
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
             movePosition += Vector3.right * runSpeed;
             sprites.flipX = false;
-            moveCheck = true;
+            //moveCheck = true;
             playerPos.localEulerAngles = new Vector3(0, 50 + rotateAdd, 0); // right rotation
         }
         else
