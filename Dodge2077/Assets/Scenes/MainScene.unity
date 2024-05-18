@@ -1439,7 +1439,7 @@ MonoBehaviour:
   _bullet: {fileID: 4727090042600959549, guid: 1dee072ec286e7644a7446a56c2bd214, type: 3}
   _poolManager: {fileID: 1073964346}
   _damage: 1
-  _per: 1
+  _per: 0
   _bulletSpeed: 1
   coolTime: 0.2
 --- !u!114 &622262786
