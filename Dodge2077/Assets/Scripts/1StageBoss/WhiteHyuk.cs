@@ -134,7 +134,7 @@ public class WhiteHyuk : MonoBehaviour
             yield return null;
         }
         FreezeCircle.SetActive(false);
-        FreezeCircle.SetActive(false);
+        
         _player.GetComponent<PlayerController>().ChangeSpeed(3f);
     }
 

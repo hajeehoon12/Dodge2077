@@ -12,5 +12,6 @@ public class PlayerDead : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log("Particle Name :" + other.gameObject.name);
+        
     }
 }

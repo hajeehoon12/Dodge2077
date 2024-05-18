@@ -65,9 +65,9 @@ public class BossRotate : MonoBehaviour
             if (!isRotate)
             {              
                 transform.DORotate(firstRotate, 1).onComplete += HyukPattern; // Rotate 180 degree in 1sec
-
+                
                 isRotate = true;
-                yield return new WaitUntil(() => isPatternEnd); // wait until isPatterEnd is true
+                yield return new WaitUntil(() => isPatternEnd ); // wait until isPatterEnd is true
                 yield return new WaitForSeconds(3f);  // wait 3 sec
             }
             else
