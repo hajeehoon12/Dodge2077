@@ -15,6 +15,7 @@ public class WhiteHyuk : MonoBehaviour
     private GameObject FreezeCircle; // freeze Circle prefab
     public GameObject freezeHit;
     public GameObject Portal; // portal prefab
+    public BossHPManager _MyHP;
 
     private void Awake()
     {
@@ -29,6 +30,11 @@ public class WhiteHyuk : MonoBehaviour
         freezeHit.SetActive(false);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        _MyHP.TakeDamage(collision.GetComponent<Bullet>().damage);
+    }
+
 
     public void CallWhite()
     {
@@ -36,13 +42,14 @@ public class WhiteHyuk : MonoBehaviour
         switch (patternNum%4)
         {
             case 0:
-                AdvancedChasing();
+                StoneShot();
+                
                 break;
             case 1:
                 Freezing();
                 break;
             case 2:
-                StoneShot();
+                AdvancedChasing();
                 break;
             case 3:
                 CreatePortal();
@@ -191,13 +198,31 @@ public class WhiteHyuk : MonoBehaviour
     {
         AudioManager.instance.PlaySFX("Stone", 1f);
         Meteor.transform.position -= new Vector3((Meteor.transform.position.x - _player.position.x), 0, 0);
-        Invoke("MeteorOn", 1f); // Call Meteor Skill
+        Invoke("MeteorOn", 0.5f); // Call Meteor Skill
         Invoke("MeteorOff", 3f); // Call Skill Off after 3sec
     }
     private void MeteorOn() // assistant
     {
         Meteor.SetActive(true);
+        StartCoroutine(MeteorChase(2f));
     }
+
+    public IEnumerator MeteorChase(float duration) // Working to chase
+    {
+        
+        float time = 0.0f;
+
+        while (time < 1.0f)
+        {
+            time += Time.deltaTime / duration;
+
+            Meteor.transform.DOMove(Meteor.transform.position - new Vector3((Meteor.transform.position.x - _player.position.x) * 0.8f, 0, 0), 2f);
+
+            yield return null;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
     private void MeteorOff() // assistant
     {
         Meteor.SetActive(false);

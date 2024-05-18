@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossHPBar : MonoBehaviour
+public class BossHPManager : MonoBehaviour
 {
    
     [SerializeField] private Slider hpBarSlider = null;
@@ -13,7 +13,7 @@ public class BossHPBar : MonoBehaviour
 
     void Start()
     {
-        BossMaxHP = 100.0f;         //여기 임의로 설정
+        BossMaxHP = 1000.0f;         //여기 임의로 설정
         BossCurrentHP = BossMaxHP;
     }
 
@@ -22,7 +22,8 @@ public class BossHPBar : MonoBehaviour
         
     }
 
- 
+    
+
 
     //보스가 데미지를 받을 때 ( 매개변수에 음수를 넣어 체력 회복용도로도 가능 )
     public void TakeDamage(float damage)
