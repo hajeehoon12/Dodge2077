@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed; // Player movement Speed
-
     //private bool moveCheck; // isMoving?
 
     float runSpeed;
@@ -16,12 +14,12 @@ public class PlayerController : MonoBehaviour
 
     Transform playerPos;
     SpriteRenderer sprites;
-    
+
+    private CharacterStatHandler playerStat;
 
     void Awake()
     {
-      
-        
+        playerStat = GetComponent<CharacterStatHandler>();
     }
 
     private void Start()
@@ -94,12 +92,12 @@ public class PlayerController : MonoBehaviour
 
         //if (moveCheck) Debug.Log("isMoving!!");
 
-        transform.position += movePosition * moveSpeed * Time.fixedDeltaTime;
+        transform.position += movePosition * playerStat.CurrentStat.moveSpeed * Time.fixedDeltaTime;
     }
 
     public void ChangeSpeed(float speed)
-    { 
-        moveSpeed = speed;
+    {
+        playerStat.ChangeMoveSpeed(speed);
     }
 
 }

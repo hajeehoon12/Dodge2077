@@ -10,9 +10,9 @@ public enum StatsChangeType
 public class CharacterStat
 {
     public StatsChangeType statsChangeType;
-    public float maxHP;         //최대 체력
-    public float speed;         //이동 속도
-    public float damage;        //공격력
-    public int penetration;     //관통력
-    public float bulletSpeed;   //총알 스피드
+    public float MaxHP;         //최대 체력
+    public float MoveSpeed;     //이동 속도
+    public float Damage;        //공격력
+    public int Penetration;     //관통력
+    public float BulletSpeed;   //총알 스피드
 }

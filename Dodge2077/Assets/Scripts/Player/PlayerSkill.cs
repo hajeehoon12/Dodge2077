@@ -13,13 +13,19 @@ public class Player : MonoBehaviour
     private bool isPressing = false; // To check pressing
     private bool timeWatch = false; // To check when you start pressing
 
+    private CharacterStatHandler playerStat;
+
+
+    private void Awake()
+    {
+        playerStat = GetComponent<CharacterStatHandler>();
+    }
 
     private void Start()
     {
         player_Skill1.SetActive(false);
         player_Skill2.SetActive(false);
     }
-
 
     // Update is called once per frame
     void Update()
