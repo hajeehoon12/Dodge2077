@@ -3778,6 +3778,7 @@ GameObject:
   - component: {fileID: 1410778803}
   - component: {fileID: 8652354683637801652}
   - component: {fileID: 8652354683637801653}
+  - component: {fileID: 8652354683637801654}
   m_Layer: 12
   m_Name: WhiteHyuk
   m_TagString: Enemy
@@ -3799,6 +3800,7 @@ GameObject:
   - component: {fileID: 1851946231}
   - component: {fileID: 8652354683800621296}
   - component: {fileID: 8652354683800621297}
+  - component: {fileID: 8652354683800621298}
   m_Layer: 12
   m_Name: DarkHyuk
   m_TagString: Enemy
@@ -4214,6 +4216,26 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06609386, y: -0.090128265}
   m_Size: {x: 2.6335785, y: 3.210398}
   m_Direction: 0
+--- !u!114 &8652354683637801654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637281393514288075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9fda4b87089d3f42a2b21262c472307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    statsChangeType: 0
+    maxHP: 0
+    speed: 0
+    damage: 0
+    penetration: 0
+    bulletSpeed: 0
+  statsModifiers: []
 --- !u!4 &8652354683800621295
 Transform:
   m_ObjectHideFlags: 0
@@ -4279,6 +4301,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00952901, y: 0.009528696}
   m_Size: {x: 1.8299422, y: 1.8299422}
   m_Direction: 0
+--- !u!114 &8652354683800621298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637281394146812311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9fda4b87089d3f42a2b21262c472307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    statsChangeType: 2
+    maxHP: 1000
+    speed: 0
+    damage: 0
+    penetration: 0
+    bulletSpeed: 0
+  statsModifiers: []
 --- !u!223 &8826729378753032564
 Canvas:
   m_ObjectHideFlags: 0

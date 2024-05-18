@@ -1,0 +1,18 @@
+public enum StatsChangeType
+{
+    Add,            // 0, 스탯을 더해주는 것
+    Multiple,       // 1, 스탯을 곱해주는 것
+    Override,       // 2, 스탯을 덧씌워주는 것
+}
+
+[System.Serializable]
+
+public class CharacterStat
+{
+    public StatsChangeType statsChangeType;
+    public float maxHP;         //최대 체력
+    public float speed;         //이동 속도
+    public float damage;        //공격력
+    public int penetration;     //관통력
+    public float bulletSpeed;   //총알 스피드
+}
