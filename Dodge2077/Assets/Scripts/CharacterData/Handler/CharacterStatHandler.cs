@@ -6,6 +6,7 @@ public class CharacterStatHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStat baseStats;
     public CharacterStat CurrentStat { get; private set; }
+    //버프 리스트 ( 메이플 버프창처럼 쭉 나열되어 있는 버프리스트라 생각하면 됩니다 )
     public List<CharacterStat> BuffList = new List<CharacterStat>();
 
     //버프 추가 델리게이트 작성 예정
@@ -22,10 +23,10 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStat.BulletSpeed = baseStats.BulletSpeed;
     }
 
-    //외부에서 스탯을 변경한 뒤에 꼭 불러와야 하는 함수
+    //외부에서 스탯을 변경한 뒤에 꼭 불러와야 하는 함수 ( 스탯을 변경한 다음 남아 있는 버프들을 적용시켜야 하기 때문이다 )
     private void UpdateCharacterStat()
     {
-
+        //버프 리스트들을 모두 적용시켜주는 for문
         foreach (CharacterStat addStat in BuffList)
         {
 
