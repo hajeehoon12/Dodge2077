@@ -32,6 +32,7 @@ public class WhiteHyuk : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.GetComponent<Bullet>() != null)
         _MyHP.TakeDamage(collision.GetComponent<Bullet>().damage);
     }
 

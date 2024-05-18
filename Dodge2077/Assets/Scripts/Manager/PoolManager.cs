@@ -10,15 +10,28 @@ public class PoolManager : MonoBehaviour
     //.. 풀을 관리할 리스트 생성
     List<GameObject>[] pools;
 
+    public static PoolManager Instance;
+
     void Awake()
     {
         // 일대일 대응 선언
-        pools = new List<GameObject>[prefabs.Length];
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
 
+
+        pools = new List<GameObject>[prefabs.Length];
         for (int index = 0; index < pools.Length; index++) {
             pools[index] = new List<GameObject>();
-        
         }
+
+
     }
 
     public GameObject Get(int index) 

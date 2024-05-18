@@ -27,7 +27,7 @@ public class ShootingBullets : MonoBehaviour
     void Start()
     {
         _damage = 1;
-        _per = 1;
+        _per = 0; // penetrate 0 enemy
         StartCoroutine(Fire(coolTime)); // coolTime 마다 총알을 발사하라
     }
 
@@ -48,7 +48,7 @@ public class ShootingBullets : MonoBehaviour
 
         bullet.transform.localEulerAngles = new Vector3(0, 0, 0); // 총알의 회전값
         //Debug.Log("test");
-        bullet.GetComponent<Bullet>().Init(_damage, _per, 1); // 총알 데미지, 관통력, 속력
+        bullet.GetComponent<Bullet>().Init(_damage, _per, _bulletSpeed); // 총알 데미지, 관통력, 속력
 
         
 
