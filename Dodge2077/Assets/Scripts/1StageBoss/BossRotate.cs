@@ -23,7 +23,7 @@ public class BossRotate : MonoBehaviour
 
     public void Start()
     {
-        transform.DOMove(new Vector3(0, 2.8f, 0), 3f);
+        
 
         Invoke("StartRotate", 3f);
     }

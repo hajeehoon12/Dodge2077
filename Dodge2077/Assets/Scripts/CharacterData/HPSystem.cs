@@ -10,7 +10,7 @@ public class HPSystem : MonoBehaviour
     public event Action<float> OnDamage;        //대미지 받을 때
     public event Action<float> OnHeal;          //힐 받을 때
     public event Action OnDeath;                //죽을 때
-    public event Action OnInvincibilityEnd;     //무적 끝날 때
+    //public event Action OnInvincibilityEnd;     //무적 끝날 때
 
     public float CurrentHealth{ get; private set; }
     public float MaxHealth => statHandler.CurrentStat.MaxHP;

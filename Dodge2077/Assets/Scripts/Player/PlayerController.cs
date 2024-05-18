@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         sprites = GetComponentInChildren<SpriteRenderer>();
         playerPos = GetComponentInChildren<Transform>();
+        ChangeSpeed(3f);
     }
     void FixedUpdate()
     {
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
         //if (moveCheck) Debug.Log("isMoving!!");
 
-        transform.position += movePosition * playerStat.CurrentStat.moveSpeed * Time.fixedDeltaTime;
+        transform.position += movePosition * playerStat.CurrentStat.MoveSpeed * Time.fixedDeltaTime;
     }
 
     public void ChangeSpeed(float speed)

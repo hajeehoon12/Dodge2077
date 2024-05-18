@@ -45,6 +45,18 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+    public void PlayBGM(string p_bgmName, float _volume)
+    {
+        for (int i = 0; i < bgm.Length; i++)
+        {
+            if (p_bgmName == bgm[i].name)
+            {
+                bgmPlayer.clip = bgm[i].clip;
+                bgmPlayer.Play();
+                bgmPlayer.volume = _volume;
+            }
+        }
+    }
 
     public void StopBGM()
     {
