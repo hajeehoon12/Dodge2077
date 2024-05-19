@@ -34,6 +34,7 @@ public class DarkHyuk : MonoBehaviour
 
             //캐릭터가 피가 닳을 때마다 호출해줄 함수 추가해줌 ( hpSystem.OnDamage는 피가 닳거나 회복할 때마다 발생하는 이벤트 )
             hpSystem.OnDamage += _MyHP.TakeDamage;      //OnDamage가 발생할 때마다 _MyHP.TakeDamage함수를 호출함
+            hpSystem.OnHeal += _MyHP.TakeDamage;
         }
     }
 
