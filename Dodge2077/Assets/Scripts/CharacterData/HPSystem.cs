@@ -44,9 +44,9 @@ public class HPSystem : MonoBehaviour
         CurrentHealth -= _damage;
 
         //힐이면 OnHeal이벤트 발생, 대미지면 OnDamage이벤트 발생
-        if (_damage <= 0) OnHeal?.Invoke(_damage);
-        if (_damage > 0) OnDamage?.Invoke(_damage);
-
+        //if (_damage <= 0) OnHeal?.Invoke(_damage);
+        //if (_damage > 0) OnDamage?.Invoke(_damage);
+        OnDamage?.Invoke(_damage);
         //0미만, 최대체력 초과로 넘어가지 않게 조정한다.
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0.0f, MaxHealth);
 

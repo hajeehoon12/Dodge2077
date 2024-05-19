@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.UI;
+using System;
 
 public class BossRotate : MonoBehaviour
 {
     public WhiteHyuk _whiteHyuk;
     public DarkHyuk _darkHyuk;
+    public HPSystem _HpSys;
+
+    public Text Boss1;
+    public Text Boss2;
 
     private bool isRotate = false; // isRotate = false, dark || isRotate = true , white
     private bool isPatternEnd = false;
@@ -38,24 +45,24 @@ public class BossRotate : MonoBehaviour
 
     public void BossPhase() // select boss phase
     {
-        
-        if (_whiteHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0) // if whiteHyuk is Dead
+
+        if (_whiteHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0)
         {
-            BossPerformance();
-            whiteDead = true;
-            transform.DORotate(secondRotate, 0.3f);
-            DOTween.To(() => _darkHyuk.GetComponentInChildren<HPSystem>().CurrentHealth, x => _darkHyuk.GetComponentInChildren<HPSystem>().CurrentHealth = x, 100f, 0.6f);
+            DOTween.To(() => "", str => Boss2.text = str, "∫–≥Î«— æÓµ“¿« «ı∏≈¥‘", 1.5f);
+            whiteDead = true;// if whiteHyuk is Dead
         }
-        if (_darkHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0) // if darkHyuk is Dead
+        if (_darkHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0)  // if darkHyuk is Dead
         {
-            BossPerformance();
+            DOTween.To(() => "", str => Boss1.text = str, "∫–≥Î«— ∫˚¿« «ı∏≈¥‘", 1.5f);
             blackDead = true;
-            transform.DORotate(firstRotate, 0.3f);
         }
+
 
 
         if (whiteDead != blackDead) // one is Dead
         {
+            StartCoroutine(BossPhase2Perform());
+            StartCoroutine(BossPhase2Sync());
             AudioManager.instance.StopBGM();
             AudioManager.instance.PlayBGM("Boss1Phase2");
             StopCoroutine(BossCoroutine); // make instance to call boss Coroutine
@@ -63,19 +70,44 @@ public class BossRotate : MonoBehaviour
         }
         else   // two is Dead
         {
-            ShakeCamera.instance.MakeCameraShake(1f, 0.1f, 0.1f); ;
+            ShakeCamera.instance.MakeCameraShake(1f, 0.1f, 0.1f);
             StopCoroutine(BossCoroutine);
         }
     }
 
-    private void BossPerformance()
+    private IEnumerator BossPhase2Perform() // Boss Rotate and call Pattern
     {
+        ShakeCamera.instance.MakeCameraShake(0.6f, 0.1f, 0.1f);
         Time.timeScale = 0.3f;
-        Invoke("BossPerformanceBack", 0.7f);
-    }
-    private void BossPerformanceBack()
-    {
+        yield return new WaitForSeconds(0.7f);
         Time.timeScale = 1f;
+    }
+
+    private IEnumerator BossPhase2Sync() // Boss Rotate and call Pattern
+    {
+        float time = 0.0f;
+        float duration = 0.7f;
+
+        if (whiteDead)
+        {
+            transform.DORotate(secondRotate, 0.3f);   
+            _HpSys = _darkHyuk.GetComponent<HPSystem>();
+            
+        }
+        else
+        {
+            transform.DORotate(firstRotate, 0.3f);
+            _HpSys = _whiteHyuk.GetComponent<HPSystem>();
+            
+        }
+
+        while (time < 1.0f)
+        {
+            time += 0.01f/ duration;
+            _HpSys.TakeDamage(-1);
+            yield return null;
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 
 
@@ -126,7 +158,7 @@ public class BossRotate : MonoBehaviour
 
     private IEnumerator AngryBoss(bool ifDark) // Boss Rotate and call Pattern
     {
-        ShakeCamera.instance.MakeCameraShake(2f, 0.2f, 0.2f);
+        //ShakeCamera.instance.MakeCameraShake(2f, 0.2f, 0.2f);
         yield return new WaitForSeconds(2f);
         
         while (true)

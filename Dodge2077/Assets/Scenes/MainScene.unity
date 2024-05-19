@@ -427,6 +427,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _whiteHyuk: {fileID: 8652354683637801652}
   _darkHyuk: {fileID: 8652354683800621296}
+  _HpSys: {fileID: 0}
+  Boss1: {fileID: 1889109070}
+  Boss2: {fileID: 145667925}
   whiteDead: 0
   blackDead: 0
 --- !u!1 &145667923
