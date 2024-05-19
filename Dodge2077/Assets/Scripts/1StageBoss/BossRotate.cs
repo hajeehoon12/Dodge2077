@@ -48,12 +48,12 @@ public class BossRotate : MonoBehaviour
 
         if (_whiteHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0)
         {
-            DOTween.To(() => "", str => Boss2.text = str, "∫–≥Î«— æÓµ“¿« «ı∏≈¥‘", 1.5f);
+            
             whiteDead = true;// if whiteHyuk is Dead
         }
         if (_darkHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0)  // if darkHyuk is Dead
         {
-            DOTween.To(() => "", str => Boss1.text = str, "∫–≥Î«— ∫˚¿« «ı∏≈¥‘", 1.5f);
+            
             blackDead = true;
         }
 
@@ -61,7 +61,7 @@ public class BossRotate : MonoBehaviour
 
         if (whiteDead != blackDead) // one is Dead
         {
-            StartCoroutine(BossPhase2Perform());
+            StartCoroutine(SlowMotion());
             StartCoroutine(BossPhase2Sync());
             AudioManager.instance.StopBGM();
             AudioManager.instance.PlayBGM("Boss1Phase2");
@@ -70,12 +70,14 @@ public class BossRotate : MonoBehaviour
         }
         else   // two is Dead
         {
-            ShakeCamera.instance.MakeCameraShake(1f, 0.1f, 0.1f);
+            StartCoroutine(SlowMotion());
+            _darkHyuk.GetComponent<Animator>().SetBool("isDead", true);
+            _whiteHyuk.GetComponent<Animator>().SetBool("isDead", true);
             StopCoroutine(BossCoroutine);
         }
     }
 
-    private IEnumerator BossPhase2Perform() // Boss Rotate and call Pattern
+    private IEnumerator SlowMotion() // Boss Rotate and call Pattern
     {
         ShakeCamera.instance.MakeCameraShake(0.6f, 0.1f, 0.1f);
         Time.timeScale = 0.3f;
@@ -92,13 +94,16 @@ public class BossRotate : MonoBehaviour
         {
             transform.DORotate(secondRotate, 0.3f);   
             _HpSys = _darkHyuk.GetComponent<HPSystem>();
-            
+            DOTween.To(() => "", str => Boss2.text = str, "∫–≥Î«— æÓµ“¿« «ı∏≈¥‘", 1.5f);
+            _whiteHyuk.GetComponent<Animator>().SetBool("isDead", true);
+
         }
         else
         {
             transform.DORotate(firstRotate, 0.3f);
             _HpSys = _whiteHyuk.GetComponent<HPSystem>();
-            
+            DOTween.To(() => "", str => Boss1.text = str, "∫–≥Î«— ∫˚¿« «ı∏≈¥‘", 1.5f);
+            _darkHyuk.GetComponent<Animator>().SetBool("isDead", true);
         }
 
         while (time < 1.0f)
