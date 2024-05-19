@@ -52,13 +52,9 @@ public class BossRotate : MonoBehaviour
             whiteDead = true;// if whiteHyuk is Dead
         }
         if (_darkHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0)  // if darkHyuk is Dead
-        {
-            
+        {  
             blackDead = true;
         }
-
-
-
         if (whiteDead != blackDead) // one is Dead
         {
             StartCoroutine(SlowMotion());
@@ -109,7 +105,8 @@ public class BossRotate : MonoBehaviour
         while (time < 1.0f)
         {
             time += 0.01f/ duration;
-            _HpSys.TakeDamage(-1);
+            if(whiteDead) _HpSys.TakeDamage(-2);
+            else _HpSys.TakeDamage(-1.5f);
             yield return null;
             yield return new WaitForSeconds(0.01f);
         }
