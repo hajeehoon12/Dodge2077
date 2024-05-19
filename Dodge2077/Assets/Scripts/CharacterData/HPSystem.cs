@@ -22,6 +22,7 @@ public class HPSystem : MonoBehaviour
 
     void Start()
     {
+        if (statHandler == null) Debug.Log("null");//
         CurrentHealth = MaxHealth;
     }
 

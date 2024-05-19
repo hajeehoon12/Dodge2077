@@ -11,6 +11,32 @@ public class DarkHyuk : MonoBehaviour
     public Transform _player;
     public GameObject _Boss;
     public BossHPManager _MyHP;
+
+    //스탯
+    private CharacterStatHandler stat;
+    //HP관리시스템 ( 이곳에서 대미지를 받는 등 HP관련 시스템을 처리한다 )
+    private HPSystem hpSystem;
+
+    private void Awake()
+    {
+        //스탯 관련 컴포넌트 추가 ( HPSystem스크립트는 반드시 CharacterStatHandler와 같은 오브젝트에 있어야 한다 )
+        stat = GetComponent<CharacterStatHandler>();
+        hpSystem = GetComponent<HPSystem>();
+    }
+
+    private void Start()
+    {
+        if (_MyHP != null)
+        {
+            //보스 HPBar에 있는 HP관련 변수들을 현재 체력으로 맞춰주는 코드
+            _MyHP.ChangeMaxHP(stat.CurrentStat.MaxHP);
+            _MyHP.ChangeCurrentHP(stat.CurrentStat.MaxHP);
+
+            //캐릭터가 피가 닳을 때마다 호출해줄 함수 추가해줌 ( hpSystem.OnDamage는 피가 닳거나 회복할 때마다 발생하는 이벤트 )
+            hpSystem.OnDamage += _MyHP.TakeDamage;      //OnDamage가 발생할 때마다 _MyHP.TakeDamage함수를 호출함
+        }
+    }
+
     public void CallDark()
     {
 
@@ -39,7 +65,7 @@ public class DarkHyuk : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _MyHP.TakeDamage(collision.GetComponent<Bullet>().damage);
+        if (collision.GetComponent<Bullet>() != null) hpSystem.TakeDamage(collision.GetComponent<Bullet>().damage);
     }
 
 

@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class WhiteHyuk : MonoBehaviour
 {
@@ -17,9 +18,18 @@ public class WhiteHyuk : MonoBehaviour
     public GameObject Portal; // portal prefab
     public BossHPManager _MyHP;
 
+    //스탯
+    private CharacterStatHandler stat;
+    //HP관리시스템 ( 이곳에서 대미지를 받는 등 HP관련 시스템을 처리한다 )
+    public HPSystem hpSystem;
+
     private void Awake()
     {
-        FreezeCircle=Instantiate(InstantFreezeCircle);
+        //스탯 관련 컴포넌트 추가 ( HPSystem스크립트는 반드시 CharacterStatHandler와 같은 오브젝트에 있어야 한다 )
+        stat = GetComponent<CharacterStatHandler>();
+        hpSystem = GetComponent<HPSystem>();
+
+        FreezeCircle =Instantiate(InstantFreezeCircle);
     }
 
 
@@ -28,12 +38,21 @@ public class WhiteHyuk : MonoBehaviour
         Meteor.SetActive(false);   
         FreezeCircle.SetActive(false);
         freezeHit.SetActive(false);
+
+        if (_MyHP != null)
+        {
+            //보스 HPBar에 있는 HP관련 변수들을 현재 체력으로 맞춰주는 코드
+            _MyHP.ChangeMaxHP(stat.CurrentStat.MaxHP);
+            _MyHP.ChangeCurrentHP(stat.CurrentStat.MaxHP);
+
+            //캐릭터가 피가 닳을 때마다 호출해줄 함수 추가해줌 ( hpSystem.OnDamage는 피가 닳거나 회복할 때마다 발생하는 이벤트 )
+            hpSystem.OnDamage += _MyHP.TakeDamage;      //OnDamage가 발생할 때마다 _MyHP.TakeDamage함수를 호출함
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<Bullet>() != null)
-        _MyHP.TakeDamage(collision.GetComponent<Bullet>().damage);
+        if(collision.GetComponent<Bullet>() != null) hpSystem.TakeDamage(collision.GetComponent<Bullet>().damage);
     }
 
 
