@@ -6007,7 +6007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     statsChangeType: 0
-    MaxHP: 300
+    MaxHP: 400
     MoveSpeed: 0
     Damage: 0
     Penetration: 0
