@@ -1556,7 +1556,7 @@ MonoBehaviour:
   baseStats:
     statsChangeType: 0
     MaxHP: 0
-    MoveSpeed: 0
+    MoveSpeed: 3
     Damage: 0
     Penetration: 0
     BulletSpeed: 0
@@ -5999,7 +5999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    statsChangeType: 2
+    statsChangeType: 0
     MaxHP: 1000
     MoveSpeed: 0
     Damage: 0

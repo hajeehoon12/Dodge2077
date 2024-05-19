@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     {
         sprites = GetComponentInChildren<SpriteRenderer>();
         playerPos = GetComponentInChildren<Transform>();
-        ChangeSpeed(3f);
     }
     void FixedUpdate()
     {
