@@ -167,7 +167,7 @@ public class WhiteHyuk : MonoBehaviour
 
         chasingBullet.transform.localEulerAngles = new Vector3(0, 0, 0); // 총알의 회전값
         //Debug.Log("test");
-        AudioManager.instance.PlaySFX("ChasingMagic");
+        AudioManager.instance.PlaySFX("ChasingMagic", 0.5f);
         StartCoroutine(ChasingTime(6f));
 
         //
@@ -197,9 +197,10 @@ public class WhiteHyuk : MonoBehaviour
 
     private void CrazsyShot() // 20 shots for arc
     {
+        AudioManager.instance.PlaySFX("Laser", 0.5f);
+
         for (int i = 0; i < 20; i++)
         {
-            AudioManager.instance.PlaySFX("Laser");
 
             GameObject bullet = GameManager.Instance.pool.Get(3);
 
@@ -216,7 +217,7 @@ public class WhiteHyuk : MonoBehaviour
 
     private void StoneShot() // meteor shot with magical 
     {
-        AudioManager.instance.PlaySFX("Stone", 1f);
+        AudioManager.instance.PlaySFX("Stone", 0.5f);
         Meteor.transform.position -= new Vector3((Meteor.transform.position.x - _player.position.x), 0, 0);
         Invoke("MeteorOn", 0.5f); // Call Meteor Skill
         Invoke("MeteorOff", 3f); // Call Skill Off after 3sec

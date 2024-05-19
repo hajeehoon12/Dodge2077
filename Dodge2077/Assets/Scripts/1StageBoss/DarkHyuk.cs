@@ -69,6 +69,15 @@ public class DarkHyuk : MonoBehaviour
     }
 
 
+    
+    private void FanShot() // Moving Fan Range Shot
+    {
+
+        StartCoroutine(MoveBoss());
+        AudioManager.instance.PlaySFX("LaserMulti", 0.5f);
+        StartCoroutine(CallFan(3f));
+
+    }
     IEnumerator MoveBoss()
     {
         var tween = _Boss.transform.DOMove(new Vector3(-2, 3, 0), 1f);
@@ -76,14 +85,6 @@ public class DarkHyuk : MonoBehaviour
         tween = _Boss.transform.DOMove(new Vector3(2, 3, 0), 1f);
         yield return tween.WaitForCompletion();
         _Boss.transform.DOMove(new Vector3(0, 2.8f, 0), 1f);
-    }
-    private void FanShot() // Fan Range Shot
-    {
-
-        StartCoroutine(MoveBoss());
-        AudioManager.instance.PlaySFX("LaserMulti", 0.5f);
-        StartCoroutine(CallFan(3f));
-
     }
 
     public IEnumerator CallFan(float duration) // Working to chase
@@ -96,7 +97,7 @@ public class DarkHyuk : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 GameObject bullet = GameManager.Instance.pool.Get(4);
-                bullet.transform.position = transform.position;
+                bullet.transform.position = transform.position + new Vector3(i/5,0,0);
                 bullet.transform.localEulerAngles = new Vector3(0, 0, 162 + i * 9);
                 bullet.GetComponent<Bullet>().Init(1, 1, 0.3f);
                 //yield return new WaitForSeconds(0.1f);
@@ -122,10 +123,10 @@ public class DarkHyuk : MonoBehaviour
         {
             time += 1;
 
+            AudioManager.instance.PlaySFX("Cannon", 0.2f);
+
             for (int i = 0; i < 5; i++)
             {
-                AudioManager.instance.PlaySFX("Cannon");
-
                 GameObject bullet = GameManager.Instance.pool.Get(2);
                 bullet.transform.position = transform.position + new Vector3(-2 + i + 0.5f * (time%2) , 0, 0);
                 bullet.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
@@ -143,13 +144,13 @@ public class DarkHyuk : MonoBehaviour
 
     private void ShootChasing() // half - chasing shot for 15 shots
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 25; i++)
         {
             Invoke("ShootingStar", i*0.1f);
         }
     }
 
-    private void ShootingStar() // assistant 15 shots
+    private void ShootingStar() // assistant 25 shots
     {
         AudioManager.instance.PlaySFX("Bullet", 0.1f);
         GameObject bullet = GameManager.Instance.pool.Get(4);
@@ -171,14 +172,14 @@ public class DarkHyuk : MonoBehaviour
         while (time < 5)
         {
             time += 1;
-
+            AudioManager.instance.PlaySFX("Laser", 0.2f);
             for (int i = 0; i < 20; i++)
             {
-                AudioManager.instance.PlaySFX("Laser");
+                
 
                 GameObject bullet = GameManager.Instance.pool.Get(4);
 
-                bullet.transform.position = transform.position;
+                bullet.transform.position = transform.position + new Vector3 (time/20,0,0);
 
                 bullet.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f) * time/2.5f;
 
