@@ -145,12 +145,12 @@ public class WhiteHyuk : MonoBehaviour
     public IEnumerator FreezeTime(float duration) // Working to chase
     {
         float time = 0.0f;
-
+        _player.GetComponent<PlayerController>().HalfSpeed();
         while (time < 1.0f)
         {
             time += Time.deltaTime / duration;
 
-            _player.GetComponent<PlayerController>().HalfSpeed();
+            
 
             yield return null;
         }

@@ -87,8 +87,8 @@ public class Player : MonoBehaviour
             collision.GetComponent<Item_Abstract>().TakeItem(playerStat);
             //æ∆¿Ã≈€ º“∏Í
             Destroy(collision.gameObject);
-            Debug.Log($"Power: {playerStat.CurrentStat.Damage}");
-            Debug.Log($"Speed: {playerStat.CurrentStat.MoveSpeed}");
+            //Debug.Log($"Power: {playerStat.CurrentStat.Damage}");
+            //Debug.Log($"Speed: {playerStat.CurrentStat.MoveSpeed}");
         }
     }
 
