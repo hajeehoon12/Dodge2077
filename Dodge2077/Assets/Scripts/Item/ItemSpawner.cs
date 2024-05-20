@@ -43,11 +43,11 @@ public class ItemSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(3.0f);
 
             int itemType = Random.Range(1, 101);
-            float randX = Random.Range(-2.5f, 2.5f);
-            Vector2 spawnLoaction = new Vector3(randX, 5.0f, 0);
+            //float randX = Random.Range(-2.5f, 2.5f);
+            //Vector2 spawnLoaction = new Vector2(randX, 5.0f);
 
             //아직 아이템을 2개만 구현해서 다 구현하면 이 코드를 쓸 것
             //if (itemType <= powerUPPer) Instantiate(powerUP, new Vector3(0, 0, 0), Quaternion.identity);
@@ -57,8 +57,8 @@ public class ItemSpawner : MonoBehaviour
             //else if (itemType <= addTrianglePer) Instantiate(addTriangle, new Vector3(0, 0, 0), Quaternion.identity);
             //else if(itemType <= homingPer) Instantiate(homing, new Vector3(0, 0, 0), Quaternion.identity);
 
-            if (itemType <= 50) Instantiate(powerUP, spawnLoaction, Quaternion.identity);
-            else Instantiate(speedUP, spawnLoaction, Quaternion.identity);
+            if (itemType <= 50) Instantiate(powerUP, Vector2.zero, Quaternion.identity);
+            else Instantiate(speedUP, Vector2.zero, Quaternion.identity);
         }
     }
 }

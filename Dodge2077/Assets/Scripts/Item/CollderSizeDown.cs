@@ -1,5 +1,5 @@
 ﻿
-public class PowerUP : Item_Abstract
+public class CollderSizeDown : Item_Abstract
 {
     //protected override IEnumerator DeleteThisItem()
     //{
@@ -8,6 +8,6 @@ public class PowerUP : Item_Abstract
     //}
     public override void TakeItem(CharacterStatHandler statHandler)
     {
-        statHandler.AddDamage(0.5f);
+
     }
 }
