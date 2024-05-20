@@ -7,9 +7,9 @@ public class SceneChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("SceneChanged", 2f);
+        //Invoke("SceneChanged", 9f);
     }
-    private void SceneChanged()
+    public void SceneChanged()
     {
         SceneManager.LoadScene("MainScene");
     }

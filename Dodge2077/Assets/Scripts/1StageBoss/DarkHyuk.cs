@@ -155,6 +155,7 @@ public class DarkHyuk : MonoBehaviour
     {
         AudioManager.instance.PlaySFX("Bullet", 0.1f);
         GameObject bullet = GameManager.Instance.pool.Get(4);
+        bullet.transform.localScale = Vector3.one;
         bullet.transform.position = transform.position;
         Vector3 shootDir = _player.transform.position - bullet.transform.position;
 
@@ -168,7 +169,7 @@ public class DarkHyuk : MonoBehaviour
     public IEnumerator CrazyShotMulti(float duration) // Working to chase
     {
 
-        int time = 0;
+        float time = 0;
 
         while (time < 5)
         {
@@ -182,7 +183,7 @@ public class DarkHyuk : MonoBehaviour
 
                 bullet.transform.position = transform.position + new Vector3 (time/20,0,0);
 
-                bullet.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f) * time/2.5f;
+                bullet.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f) * (time/3+1f);
 
                 bullet.transform.localEulerAngles = new Vector3(0, 0, 90 + (i * 9)); // 총알의 회전값
                                                                                    //Debug.Log("test");
@@ -192,6 +193,7 @@ public class DarkHyuk : MonoBehaviour
             yield return null;
             yield return new WaitForSeconds(0.4f);
         }
+        
     }
 
 
