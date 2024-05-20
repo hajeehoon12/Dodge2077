@@ -39,6 +39,7 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStat.BulletSpeed = _bulletSpeed;
     }
 
+    //Ω∫≈» √ﬂ∞° (µ°º¿)
     public void AddDamage(float _addDamage)
     {
         CurrentStat.Damage += _addDamage;
@@ -47,6 +48,18 @@ public class CharacterStatHandler : MonoBehaviour
     {
         CurrentStat.MoveSpeed += _addMoveSpeed;
     }
+
+    //Ω∫≈» √ﬂ∞° (∞ˆº¿)
+    public void MultiplyDamage(float _multiplyDamage)
+    {
+        CurrentStat.Damage *= _multiplyDamage;
+    }
+    public void MultiplyMoveSpeed(float _multiplyMoveSpeed)
+    {
+        CurrentStat.MoveSpeed *= _multiplyMoveSpeed;
+    }
+
+    //±‚≈∏ ±‚¥…
     public void HalfMoveSpeed()
     {
         CurrentStat.MoveSpeed /= 2;

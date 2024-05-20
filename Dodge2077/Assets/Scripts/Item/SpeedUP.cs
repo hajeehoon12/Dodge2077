@@ -14,6 +14,6 @@ public class SpeedUP : Item_Abstract
 
     public override void TakeItem(CharacterStatHandler statHandler)
     {
-        statHandler.AddMoveSpeed(0.5f);
+        statHandler.MultiplyMoveSpeed(1.1f);
     }
 }
