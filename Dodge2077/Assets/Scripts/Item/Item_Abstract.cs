@@ -6,26 +6,20 @@ using UnityEngine;
 public abstract class Item_Abstract : MonoBehaviour
 {
     private Rigidbody2D rb;
-
-    public float speed = 3.0f;
     public float Duration { get; protected set; }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Launch();
+    }
+
+    private void Update()
+    {
+        if(transform.position.y < -6.0f) Destroy(gameObject);
     }
 
     public abstract void Setting();
     public abstract void TakeItem(CharacterStatHandler statHandler);
-
-    private void Launch()
-    {
-        float x = Random.Range(0, 2) == 0 ? -1 : 1;
-        float y = Random.Range(0, 2) == 0 ? -1 : 1;
-
-        rb.velocity = new Vector2(x * speed, y * speed);
-    }
 }
 
 //È¸º¹
