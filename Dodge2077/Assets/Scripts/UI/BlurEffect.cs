@@ -22,7 +22,7 @@ public class BlurEffect : MonoBehaviour
 
 
     private bool isButtonPressed = false;
-    private bool isModePressed = false;
+    //private bool isModePressed = false;
 
     //private bool bluroff = false;
 
