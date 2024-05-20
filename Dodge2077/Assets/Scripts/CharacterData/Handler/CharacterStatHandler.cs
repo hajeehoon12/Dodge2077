@@ -47,4 +47,13 @@ public class CharacterStatHandler : MonoBehaviour
     {
         CurrentStat.MoveSpeed += _addMoveSpeed;
     }
+    public void HalfMoveSpeed()
+    {
+        CurrentStat.MoveSpeed /= 2;
+    }
+    public void CallBackMoveSpeed()
+    {
+        CurrentStat.MoveSpeed *= 2;
+    }
+
 }

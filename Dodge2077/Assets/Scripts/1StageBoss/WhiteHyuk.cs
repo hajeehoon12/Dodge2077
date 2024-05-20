@@ -150,13 +150,13 @@ public class WhiteHyuk : MonoBehaviour
         {
             time += Time.deltaTime / duration;
 
-            _player.GetComponent<PlayerController>().ChangeSpeed(1f);
+            _player.GetComponent<PlayerController>().HalfSpeed();
 
             yield return null;
         }
         FreezeCircle.SetActive(false);
-        
-        _player.GetComponent<PlayerController>().ChangeSpeed(3f);
+
+        _player.GetComponent<PlayerController>().DoubleSpeed();
     }
 
 

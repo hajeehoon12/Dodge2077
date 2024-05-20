@@ -100,4 +100,14 @@ public class PlayerController : MonoBehaviour
         playerStat.ChangeMoveSpeed(speed);
     }
 
+    public void HalfSpeed()
+    {
+        playerStat.HalfMoveSpeed();
+    }
+    public void DoubleSpeed()
+    {
+        playerStat.CallBackMoveSpeed();
+    }
+
+
 }
