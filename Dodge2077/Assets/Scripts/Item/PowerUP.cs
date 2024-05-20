@@ -5,7 +5,6 @@ public class PowerUP : Item_Abstract
     PowerUP(float _duration)
     {
         Duration = _duration;
-        changeStat = new CharacterStat { statsChangeType = StatsChangeType.Add, Damage = 0.5f };
     }
 
     //protected override void Start()
@@ -20,7 +19,6 @@ public class PowerUP : Item_Abstract
 
     public override void TakeItem(CharacterStatHandler statHandler)
     {
-        statHandler.BuffList.Add(changeStat);
         statHandler.AddDamage(0.5f);
     }
 }

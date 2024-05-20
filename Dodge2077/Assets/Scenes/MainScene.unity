@@ -1393,6 +1393,7 @@ GameObject:
   - component: {fileID: 622262787}
   - component: {fileID: 622262788}
   - component: {fileID: 622262789}
+  - component: {fileID: 622262791}
   - component: {fileID: 622262790}
   m_Layer: 7
   m_Name: Player
@@ -1555,17 +1556,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 622262782}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+--- !u!114 &622262791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622262782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9fda4b87089d3f42a2b21262c472307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    statsChangeType: 0
     MaxHP: 0
     MoveSpeed: 3
-    Damage: 0
+    Damage: 1
     Penetration: 0
     BulletSpeed: 0
-  BuffList: []
 --- !u!1001 &695177363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5020,8 +5032,8 @@ GameObject:
   - component: {fileID: 1410778803}
   - component: {fileID: 8652354683637801652}
   - component: {fileID: 8652354683637801653}
-  - component: {fileID: 8652354683637801654}
   - component: {fileID: 8652354683637801655}
+  - component: {fileID: 8652354683637801654}
   m_Layer: 12
   m_Name: WhiteHyuk
   m_TagString: Enemy
@@ -5043,8 +5055,8 @@ GameObject:
   - component: {fileID: 1851946231}
   - component: {fileID: 8652354683800621296}
   - component: {fileID: 8652354683800621297}
-  - component: {fileID: 8652354683800621298}
   - component: {fileID: 8652354683800621299}
+  - component: {fileID: 8652354683800621298}
   m_Layer: 12
   m_Name: DarkHyuk
   m_TagString: Enemy
@@ -5953,17 +5965,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 637281393514288075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9fda4b87089d3f42a2b21262c472307, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats:
-    statsChangeType: 0
-    MaxHP: 300
-    MoveSpeed: 0
-    Damage: 0
-    Penetration: 0
-    BulletSpeed: 0
-  BuffList: []
+  isDead: 0
 --- !u!114 &8652354683637801655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5973,10 +5978,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 637281393514288075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
+  m_Script: {fileID: 11500000, guid: a9fda4b87089d3f42a2b21262c472307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
+  baseStats:
+    MaxHP: 300
+    MoveSpeed: 0
+    Damage: 0
+    Penetration: 0
+    BulletSpeed: 0
 --- !u!4 &8652354683800621295
 Transform:
   m_ObjectHideFlags: 0
@@ -6052,17 +6062,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 637281394146812311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9fda4b87089d3f42a2b21262c472307, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats:
-    statsChangeType: 0
-    MaxHP: 400
-    MoveSpeed: 0
-    Damage: 0
-    Penetration: 0
-    BulletSpeed: 0
-  BuffList: []
+  isDead: 0
 --- !u!114 &8652354683800621299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6072,10 +6075,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 637281394146812311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
+  m_Script: {fileID: 11500000, guid: a9fda4b87089d3f42a2b21262c472307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
+  baseStats:
+    MaxHP: 400
+    MoveSpeed: 0
+    Damage: 0
+    Penetration: 0
+    BulletSpeed: 0
 --- !u!223 &8826729378753032564
 Canvas:
   m_ObjectHideFlags: 0

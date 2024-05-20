@@ -8,8 +8,6 @@ public abstract class Item_Abstract : MonoBehaviour
     private Rigidbody2D rb;
 
     public float speed = 3.0f;
-
-    protected CharacterStat changeStat;
     public float Duration { get; protected set; }
 
     private void Start()
