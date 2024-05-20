@@ -6,7 +6,7 @@ using UnityEngine;
 public class HPSystem : MonoBehaviour
 {
     private CharacterStatHandler statHandler;
-    private BossRotate bossRotate;
+    public BossRotate bossRotate;
 
     public event Action<float> OnDamage;        //대미지 받을 때
     public event Action<float> OnHeal;          //힐 받을 때
@@ -21,14 +21,14 @@ public class HPSystem : MonoBehaviour
     void Awake()
     {
         statHandler = GetComponent<CharacterStatHandler>();
-        bossRotate = GetComponentInParent<BossRotate>();
+        //bossRotate = GetComponentInParent<BossRotate>();
     }
 
     void Start()
     {
         if (statHandler == null) Debug.Log("null");//
         CurrentHealth = MaxHealth;
-
+        //Debug.Log(gameObject);
         OnDeath += bossRotate.BossPhase; // Call func BossPhase()
     }
 

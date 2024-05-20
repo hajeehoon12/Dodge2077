@@ -1559,6 +1559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossRotate: {fileID: 114093026}
   isDead: 0
 --- !u!114 &622262791
 MonoBehaviour:
@@ -2515,7 +2516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &981265150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5968,6 +5969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossRotate: {fileID: 114093026}
   isDead: 0
 --- !u!114 &8652354683637801655
 MonoBehaviour:
@@ -6065,6 +6067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossRotate: {fileID: 114093026}
   isDead: 0
 --- !u!114 &8652354683800621299
 MonoBehaviour:
