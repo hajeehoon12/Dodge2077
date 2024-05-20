@@ -99,4 +99,15 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStat.BulletSpeed = _bulletSpeed;
         UpdateCharacterStat();
     }
+
+    public void AddDamage(float _addDamage)
+    {
+        CurrentStat.Damage += _addDamage;
+        //UpdateCharacterStat();
+    }
+    public void AddMoveSpeed(float _addMoveSpeed)
+    {
+        CurrentStat.MoveSpeed += _addMoveSpeed;
+        //UpdateCharacterStat();
+    }
 }

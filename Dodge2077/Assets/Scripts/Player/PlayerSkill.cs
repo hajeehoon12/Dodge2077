@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class Player : MonoBehaviour
 {
@@ -75,6 +76,20 @@ public class Player : MonoBehaviour
 
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //아이템과 접촉했을 시( PlayerDead에다 하지않고 여기다 작성한 이유는 PlayerStat을 받아와야 하기 떄문이다. )
+        if (collision.CompareTag("Item"))
+        {
+            //TakeItem을 호출
+            collision.GetComponent<Item_Abstract>().TakeItem(playerStat);
+            //아이템 소멸
+            Destroy(collision.gameObject);
+            Debug.Log($"Power: {playerStat.CurrentStat.Damage}");
+            Debug.Log($"Speed: {playerStat.CurrentStat.MoveSpeed}");
+        }
     }
 
     void Pressing()

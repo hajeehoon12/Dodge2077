@@ -7,6 +7,7 @@ public class PlayerDead : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collider Name : " + other.gameObject.name);
+
     }
 
     private void OnParticleCollision(GameObject other)
