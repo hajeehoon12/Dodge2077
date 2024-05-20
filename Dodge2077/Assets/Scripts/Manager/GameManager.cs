@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
-    public PoolManager pool;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    public void SceneChanged()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
 
     // Update is called once per frame
     void Update()

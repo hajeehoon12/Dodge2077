@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         sprites = GetComponentInChildren<SpriteRenderer>();
         playerPos = GetComponentInChildren<Transform>();
+        Debug.Log("I am :" + DataManager.Instance.is1P);
     }
     void FixedUpdate()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class Player : MonoBehaviour
             // Skill Start Animation
             player_Skill1.SetActive(true);
             player_Skill2.SetActive(true);
+
+            //player_Skill1.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
+            //player_Skill2.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
+
             player_Skill1.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
             player_Skill2.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
         }
@@ -63,7 +68,7 @@ public class Player : MonoBehaviour
 
             for (int i = 0; i < 10; i++)
             {
-                GameObject bullet = GameManager.Instance.pool.Get(1); // case 0 이 아니기에 prefabId에 총알번호가 들어감
+                GameObject bullet = PoolManager.Instance.Get(1); // case 0 이 아니기에 prefabId에 총알번호가 들어감
                 bullet.transform.position = transform.position;
 
 

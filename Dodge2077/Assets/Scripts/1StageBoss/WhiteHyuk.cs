@@ -102,7 +102,7 @@ public class WhiteHyuk : MonoBehaviour
 
 
             GameObject ranPortal = Instantiate(Portal, new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(2.5f, 4.5f), 0), Quaternion.identity);
-            GameObject bullet = GameManager.Instance.pool.Get(3);
+            GameObject bullet = PoolManager.Instance.Get(3);
             bullet.transform.position = ranPortal.transform.position;
 
             Vector3 dir = _player.position - ranPortal.transform.position;
@@ -162,7 +162,7 @@ public class WhiteHyuk : MonoBehaviour
 
     private void AdvancedChasing() // Player Chasing shot for 6 seconds
     {
-        chasingBullet = GameManager.Instance.pool.Get(5);
+        chasingBullet = PoolManager.Instance.Get(5);
         chasingBullet.transform.position = transform.position;
 
 
@@ -203,7 +203,7 @@ public class WhiteHyuk : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
 
-            GameObject bullet = GameManager.Instance.pool.Get(3);
+            GameObject bullet = PoolManager.Instance.Get(3);
 
             bullet.transform.position = transform.position;
 

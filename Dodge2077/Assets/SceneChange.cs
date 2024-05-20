@@ -9,10 +9,7 @@ public class SceneChange : MonoBehaviour
     {
         //Invoke("SceneChanged", 9f);
     }
-    public void SceneChanged()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
+    
     // Update is called once per frame
     void Update()
     {

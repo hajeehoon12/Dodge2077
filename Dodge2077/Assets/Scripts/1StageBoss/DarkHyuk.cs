@@ -97,7 +97,7 @@ public class DarkHyuk : MonoBehaviour
             time += 0.2f;
             for (int i = 0; i < 5; i++)
             {
-                GameObject bullet = GameManager.Instance.pool.Get(4);
+                GameObject bullet = PoolManager.Instance.Get(4);
                 bullet.transform.position = transform.position + new Vector3(i/5,0,0);
                 bullet.transform.localEulerAngles = new Vector3(0, 0, 162 + i * 9);
                 bullet.GetComponent<Bullet>().Init(1, 1, 0.3f);
@@ -128,7 +128,7 @@ public class DarkHyuk : MonoBehaviour
 
             for (int i = 0; i < 5; i++)
             {
-                GameObject bullet = GameManager.Instance.pool.Get(2);
+                GameObject bullet = PoolManager.Instance.Get(2);
                 bullet.transform.position = transform.position + new Vector3(-2 + i + 0.5f * (time%2) , 0, 0);
                 bullet.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
@@ -154,7 +154,7 @@ public class DarkHyuk : MonoBehaviour
     private void ShootingStar() // assistant 25 shots
     {
         AudioManager.instance.PlaySFX("Bullet", 0.1f);
-        GameObject bullet = GameManager.Instance.pool.Get(4);
+        GameObject bullet = PoolManager.Instance.Get(4);
         bullet.transform.localScale = Vector3.one;
         bullet.transform.position = transform.position;
         Vector3 shootDir = _player.transform.position - bullet.transform.position;
@@ -179,7 +179,7 @@ public class DarkHyuk : MonoBehaviour
             {
                 
 
-                GameObject bullet = GameManager.Instance.pool.Get(4);
+                GameObject bullet = PoolManager.Instance.Get(4);
 
                 bullet.transform.position = transform.position + new Vector3 (time/20,0,0);
 
