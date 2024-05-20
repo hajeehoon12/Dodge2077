@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering.VirtualTexturing;
 using DG.Tweening;
 
-public class PlayerSkill : MonoBehaviour
+public class PlayerSkill2 : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -34,7 +34,7 @@ public class PlayerSkill : MonoBehaviour
     {
 
         //Debug.Log(timeWatch);
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Delete))
         {
             //Invoke("Pressing", 0.5f);
             Pressing();
@@ -51,17 +51,17 @@ public class PlayerSkill : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Space) && isPressing)
+        if (Input.GetKey(KeyCode.Delete) && isPressing)
         {
             // when pressing go for animation of Special Skill
         }
-        else if(timeWatch)
+        else if (timeWatch)
         {
             //Invoke("NotPressing", 0.4f);
             NotPressing();
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.End))
         {
             AudioManager.instance.PlaySFX("MachineGun", 0.1f);
             ShakeCamera.instance.MakeCameraShake(1f, 0.1f, 0.1f);
@@ -72,9 +72,9 @@ public class PlayerSkill : MonoBehaviour
                 bullet.transform.position = transform.position;
 
 
-                bullet.transform.localEulerAngles = new Vector3(0, 0, i * 18-90); // 총알의 회전값
+                bullet.transform.localEulerAngles = new Vector3(0, 0, i * 18 - 90); // 총알의 회전값
                 bullet.transform.position += bullet.transform.up * 1.5f;
-                                                                          //Debug.Log("test");
+                //Debug.Log("test");
                 bullet.GetComponent<Bullet>().Init(10, 5, 1); // 총알 데미지, 관통력, 속력
             }
 
@@ -98,9 +98,9 @@ public class PlayerSkill : MonoBehaviour
     }
 
     void Pressing()
-    { 
+    {
         isPressing = true;
-        
+
     }
     void NotPressing()
     {
