@@ -13,11 +13,16 @@ public class BlurEffect : MonoBehaviour
     Color color;
 
     public Image imgP1;
-    public GameObject P1Obj;
+    //public GameObject P1Obj;
     public Image imgP2;
-    public GameObject P2Obj;
+    //public GameObject P2Obj;
+
+    public Image imgEasy;
+    public Image imgHard;
+
 
     private bool isButtonPressed = false;
+    private bool isModePressed = false;
 
     //private bool bluroff = false;
 
@@ -28,6 +33,8 @@ public class BlurEffect : MonoBehaviour
         image.DOFade(0, 0f);
         imgP1.DOFade(0, 0f);
         imgP2.DOFade(0, 0f);
+        imgEasy.DOFade(0, 0f);
+        imgHard.DOFade(0, 0f);
 
         //imgP2.
         //gameObject.set
@@ -37,11 +44,12 @@ public class BlurEffect : MonoBehaviour
     {
         image.DOFade(1, 10f);
         imgP1.DOFade(1, 10f);
+        imgEasy.DOFade(1, 10f);
         //imgP2.DOFade(1, 10f);
         //DOTween.To(() => color.a, x => color.a = x, 255, 10);
     }
 
-    public void ButtonPressed()
+    public void ButtonPressed() // 1P, 2P Button
     {
         if (!isButtonPressed)
         {
@@ -59,6 +67,20 @@ public class BlurEffect : MonoBehaviour
 
         }
     }
+
+    public void EasyPressed() // Easy, Hard Button
+    {
+        DataManager.Instance.isEasy = true;
+        imgEasy.DOFade(1, 1f);
+        imgHard.DOFade(0, 1f);
+    }
+    public void HardPressed()
+    {
+        DataManager.Instance.isEasy = false;
+        imgHard.DOFade(1, 1f);
+        imgEasy.DOFade(0, 1f);
+    }
+
 
     // Update is called once per frame
     void Update()
