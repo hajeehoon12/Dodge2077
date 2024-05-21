@@ -12,10 +12,12 @@ public class SkillTriangle : MonoBehaviour
     public float fireRate = 0.5f;
     public Coroutine coroutine;
 
+    private CharacterStatHandler playerStat;
+
     // Update is called once per frame
     void Start()
     {
-        //StartCoroutine(Firing(_shootingBullets.coolTime));
+        playerStat = _player.GetComponent<CharacterStatHandler>();
     }
 
     public void StartFire(float cooltime)
@@ -39,25 +41,19 @@ public class SkillTriangle : MonoBehaviour
         StopCoroutine(coroutine);
     }
 
-
-    //private void Update()
-    //{
-     //   if (Time.time > nextFire)
-     //   {
-     //       nextFire = Time.time + fireRate;
-     //       Shooting();
-     //   }
-    //}
-
     private void Shooting()
     {
+        float _damage = playerStat.CurrentStat.Damage;
+        int _per = playerStat.CurrentStat.Penetration;
+        float _bulletSpeed = playerStat.CurrentStat.BulletSpeed;
+
         AudioManager.instance.PlaySFX("Bullet", 0.01f);
         GameObject bullet = PoolManager.Instance.Get(0); // case 0 이 아니기에 prefabId에 총알번호가 들어감
         bullet.transform.position = transform.position;
 
         bullet.transform.localEulerAngles = new Vector3(0, 0, 0); // 총알의 회전값
         
-        bullet.GetComponent<Bullet>().Init(_shootingBullets._damage, _shootingBullets._per, 1); // 총알 데미지, 관통력, 속력
+        bullet.GetComponent<Bullet>().Init(_damage, _per, _bulletSpeed); // 총알 데미지, 관통력, 속력
     }
 
 

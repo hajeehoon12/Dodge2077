@@ -533,6 +533,7 @@ MonoBehaviour:
   Boss2: {fileID: 145667925}
   whiteDead: 0
   blackDead: 0
+  Timer: 0
 --- !u!1 &145667923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,11 +1324,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    MaxHP: 0
-    MoveSpeed: 2.5
-    Damage: 1
+    MaxHP: 1
+    MoveSpeed: 0
+    Damage: 0
     Penetration: 0
     BulletSpeed: 0
+    BulletCoolTime: 0
 --- !u!50 &457836348
 Rigidbody2D:
   serializedVersion: 4
@@ -1426,10 +1428,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 4727090042600959549, guid: 1dee072ec286e7644a7446a56c2bd214, type: 3}
   _poolManager: {fileID: 1073964346}
-  _damage: 1
-  _per: 0
-  _bulletSpeed: 1
-  coolTime: 0.2
 --- !u!4 &457836354
 Transform:
   m_ObjectHideFlags: 0
@@ -1461,6 +1459,8 @@ MonoBehaviour:
   player_Skill1: {fileID: 429948828}
   player_Skill2: {fileID: 54797438}
   player: {fileID: 457836345}
+  playerStat: {fileID: 0}
+  collider: {fileID: 0}
 --- !u!114 &457836356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,10 +1981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 4727090042600959549, guid: 1dee072ec286e7644a7446a56c2bd214, type: 3}
   _poolManager: {fileID: 1073964346}
-  _damage: 1
-  _per: 0
-  _bulletSpeed: 1
-  coolTime: 0.2
 --- !u!114 &622262786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2000,6 +1996,8 @@ MonoBehaviour:
   player_Skill1: {fileID: 442709325}
   player_Skill2: {fileID: 921831856}
   player: {fileID: 622262782}
+  playerStat: {fileID: 0}
+  collider: {fileID: 0}
 --- !u!114 &622262787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2111,11 +2109,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    MaxHP: 0
-    MoveSpeed: 2.5
-    Damage: 1
+    MaxHP: 1
+    MoveSpeed: 0
+    Damage: 0
     Penetration: 0
     BulletSpeed: 0
+    BulletCoolTime: 0
 --- !u!1001 &695177363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3053,7 +3052,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &981265150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,10 +3067,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUP: {fileID: 3781616007569524261, guid: 7339388e18088fa4ba21ad13df0dc4a3, type: 3}
   speedUP: {fileID: 5786221771177963959, guid: b5674106457a9a44ca129aa26843c3d0, type: 3}
-  addSkillPoint: {fileID: 398043471936435554, guid: 4f002cdf0e6669b40b8bf2dd9ba7a33d, type: 3}
-  shield: {fileID: 7337673399591823518, guid: 3750c51310f2b5d4c8cc432e43c8e838, type: 3}
-  addTriangle: {fileID: 8951872522882444180, guid: f9ccb0c0f99556749af66e69b4d4c31b, type: 3}
-  homing: {fileID: 3394002344346026766, guid: 2c1c2d094bcbb794dba3f684c635616f, type: 3}
+  bulletAttackSpeedUP: {fileID: 8951872522882444180, guid: f9ccb0c0f99556749af66e69b4d4c31b, type: 3}
+  collderSizeDown: {fileID: 5786221771177963959, guid: a27e2b95e19be2d41a1a96efde655651, type: 3}
 --- !u!4 &981265151
 Transform:
   m_ObjectHideFlags: 0
@@ -5098,8 +5095,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 605a761f14e00bd459272770e465c88a, type: 3}
   - name: Boss1Phase2
     clip: {fileID: 8300000, guid: cdbc75fefc02f8441966fbea4ca95246, type: 3}
-  - name: Victory
-    clip: {fileID: 8300000, guid: 689ab33c77a72d649990c3ef41eb773f, type: 3}
   bgmPlayer: {fileID: 1156235338}
   sfxPlayer:
   - {fileID: 30755646}
@@ -6647,6 +6642,7 @@ MonoBehaviour:
     Damage: 0
     Penetration: 0
     BulletSpeed: 0
+    BulletCoolTime: 0
 --- !u!4 &8652354683800621295
 Transform:
   m_ObjectHideFlags: 0
@@ -6745,6 +6741,7 @@ MonoBehaviour:
     Damage: 0
     Penetration: 0
     BulletSpeed: 0
+    BulletCoolTime: 0
 --- !u!223 &8826729378753032564
 Canvas:
   m_ObjectHideFlags: 0

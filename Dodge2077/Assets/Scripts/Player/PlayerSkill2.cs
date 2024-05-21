@@ -15,18 +15,23 @@ public class PlayerSkill2 : MonoBehaviour
     private bool isPressing = false; // To check pressing
     private bool timeWatch = false; // To check when you start pressing
 
-    private CharacterStatHandler playerStat;
+    public CharacterStatHandler playerStat;
 
+    public BoxCollider2D collider;
 
     private void Awake()
     {
         playerStat = GetComponent<CharacterStatHandler>();
+        collider = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
     {
         player_Skill1.SetActive(false);
         player_Skill2.SetActive(false);
+
+        //플레이어 능력치로 초기화 ( Awake에 작성하면 오류가 나온다 )
+        playerStat.PlayerInit();
     }
 
     // Update is called once per frame
@@ -43,11 +48,8 @@ public class PlayerSkill2 : MonoBehaviour
             player_Skill1.SetActive(true);
             player_Skill2.SetActive(true);
 
-            //player_Skill1.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
-            //player_Skill2.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
-
-            player_Skill1.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
-            player_Skill2.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
+            player_Skill1.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);
+            player_Skill2.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);
         }
 
 
@@ -57,7 +59,6 @@ public class PlayerSkill2 : MonoBehaviour
         }
         else if (timeWatch)
         {
-            //Invoke("NotPressing", 0.4f);
             NotPressing();
         }
 
@@ -89,7 +90,7 @@ public class PlayerSkill2 : MonoBehaviour
         if (collision.CompareTag("Item"))
         {
             //TakeItem을 호출
-            collision.GetComponent<Item_Abstract>().TakeItem(playerStat);
+            collision.GetComponent<Item_Abstract>().TakeItem(this);
             //아이템 소멸
             Destroy(collision.gameObject);
             //Debug.Log($"Power: {playerStat.CurrentStat.Damage}");

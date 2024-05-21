@@ -15,6 +15,17 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStat.Damage = baseStats.Damage;
         CurrentStat.Penetration = baseStats.Penetration;
         CurrentStat.BulletSpeed = baseStats.BulletSpeed;
+        CurrentStat.BulletCoolTime = baseStats.BulletCoolTime;
+    }
+
+    public void PlayerInit()
+    {
+        CurrentStat.MaxHP = 1.0f;
+        CurrentStat.MoveSpeed = 2.5f;
+        CurrentStat.Damage = 1.0f;
+        CurrentStat.Penetration = 0;
+        CurrentStat.BulletSpeed = 1.0f;
+        CurrentStat.BulletCoolTime = 0.5f;
     }
 
     //´Ü¼øÇÑ ½ºÅÈº¯°æ¿ëµµ
@@ -38,6 +49,10 @@ public class CharacterStatHandler : MonoBehaviour
     {
         CurrentStat.BulletSpeed = _bulletSpeed;
     }
+    public void ChangeBulletCoolTime(float _bulletCoolTime)
+    {
+        CurrentStat.BulletCoolTime = _bulletCoolTime;
+    }
 
     //½ºÅÈ Ãß°¡ (µ¡¼À)
     public void AddDamage(float _addDamage)
@@ -48,6 +63,18 @@ public class CharacterStatHandler : MonoBehaviour
     {
         CurrentStat.MoveSpeed += _addMoveSpeed;
     }
+    public void AddPenetration(int _addPenetration)
+    {
+        CurrentStat.Penetration += _addPenetration;
+    }
+    public void AddBulletSpeed(float _addBulletSpeed)
+    {
+        CurrentStat.BulletSpeed += _addBulletSpeed;
+    }
+    public void AddBulletCoolTime(float _addBulletCollTime)
+    {
+        CurrentStat.BulletCoolTime += _addBulletCollTime;
+    }
 
     //½ºÅÈ Ãß°¡ (°ö¼À)
     public void MultiplyDamage(float _multiplyDamage)
@@ -57,6 +84,14 @@ public class CharacterStatHandler : MonoBehaviour
     public void MultiplyMoveSpeed(float _multiplyMoveSpeed)
     {
         CurrentStat.MoveSpeed *= _multiplyMoveSpeed;
+    }
+    public void MultiplyBulletSpeed(float _multiplyBulletSpeed)
+    {
+        CurrentStat.BulletSpeed *= _multiplyBulletSpeed;
+    }
+    public void MultiplyBulletCoolTime(float _multiplyBulletCoolTime)
+    {
+        CurrentStat.BulletCoolTime *= _multiplyBulletCoolTime;
     }
 
     //±âÅ¸ ±â´É

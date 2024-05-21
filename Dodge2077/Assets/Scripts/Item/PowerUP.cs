@@ -1,24 +1,12 @@
-﻿using UnityEngine;
-
+﻿
 public class PowerUP : Item_Abstract
 {
-    PowerUP(float _duration)
+    public override void TakeItem(PlayerSkill _player)
     {
-        Duration = _duration;
+        _player.playerStat.AddDamage(0.5f);
     }
-
-    //protected override void Start()
-    //{
-    //    base.Start();
-    //}
-
-    public override void Setting()
+    public override void TakeItem(PlayerSkill2 _player)
     {
-
-    }
-
-    public override void TakeItem(CharacterStatHandler statHandler)
-    {
-        statHandler.AddDamage(0.5f);
+        _player.playerStat.AddDamage(0.5f);
     }
 }

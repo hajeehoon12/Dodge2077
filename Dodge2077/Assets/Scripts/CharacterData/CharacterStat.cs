@@ -7,4 +7,5 @@ public class CharacterStat
     public float Damage;        //공격력
     public int Penetration;     //관통력
     public float BulletSpeed;   //총알 스피드
+    public float BulletCoolTime;//총알 쿨타임
 }
