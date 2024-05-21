@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public void SceneChanged()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("MainScene");
     }
     public void StageEnd(float Time)
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayBGM("Victory");
         yield return new WaitForSeconds(10f);
         AudioManager.instance.StopBGM();
+        DOTween.KillAll();
         SceneManager.LoadScene("StartScene");
         DataManager.Instance.IsHighScoreChanged(Time);
 

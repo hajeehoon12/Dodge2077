@@ -29,6 +29,7 @@ public class SkillTriangle : MonoBehaviour
 
     public IEnumerator Firing(float coolTime)
     {
+        yield return null;
         while (true)
         {
             Shooting();

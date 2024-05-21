@@ -32,11 +32,11 @@ public class BlurEffect : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<RawImage>();
-        image.DOFade(0, 0f);
-        imgP1.DOFade(0, 0f);
-        imgP2.DOFade(0, 0f);
-        imgEasy.DOFade(0, 0f);
-        imgHard.DOFade(0, 0f);
+        image?.DOFade(0, 0f);
+        imgP1?.DOFade(0, 0f);
+        imgP2?.DOFade(0, 0f);
+        imgEasy?.DOFade(0, 0f);
+        imgHard?.DOFade(0, 0f);
 
         //imgP2.
         //gameObject.set
@@ -44,10 +44,10 @@ public class BlurEffect : MonoBehaviour
 
     void Start()
     {
-        image.DOFade(1, 10f);
-        imgP1.DOFade(1, 10f);
-        imgEasy.DOFade(1, 10f);
-        HighScore.SetActive(false);
+        image?.DOFade(1, 5f);
+        imgP1?.DOFade(1, 5f);
+        imgEasy?.DOFade(1, 5f);
+        HighScore?.SetActive(false);
         //imgP2.DOFade(1, 10f);
         //DOTween.To(() => color.a, x => color.a = x, 255, 10);
     }

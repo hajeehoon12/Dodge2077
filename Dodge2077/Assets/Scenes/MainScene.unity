@@ -970,6 +970,9 @@ MonoBehaviour:
   isEasy: 1
   highScore: 0
   curScore: 0
+  playerHit: 0
+  HightText: {fileID: 0}
+  HighText: {fileID: 0}
 --- !u!4 &326424855
 Transform:
   m_ObjectHideFlags: 0
@@ -1325,11 +1328,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     MaxHP: 1
-    MoveSpeed: 0
-    Damage: 0
-    Penetration: 0
-    BulletSpeed: 0
-    BulletCoolTime: 0
+    MoveSpeed: 2.5
+    Damage: 1
+    Penetration: 1
+    BulletSpeed: 1
+    BulletCoolTime: 0.2
 --- !u!50 &457836348
 Rigidbody2D:
   serializedVersion: 4
@@ -1460,7 +1463,7 @@ MonoBehaviour:
   player_Skill2: {fileID: 54797438}
   player: {fileID: 457836345}
   playerStat: {fileID: 0}
-  collider: {fileID: 0}
+  colliders: {fileID: 0}
 --- !u!114 &457836356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,11 +2113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     MaxHP: 1
-    MoveSpeed: 0
-    Damage: 0
-    Penetration: 0
-    BulletSpeed: 0
-    BulletCoolTime: 0
+    MoveSpeed: 2.5
+    Damage: 1
+    Penetration: 1
+    BulletSpeed: 1
+    BulletCoolTime: 0.2
 --- !u!1001 &695177363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3052,7 +3055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &981265150
 MonoBehaviour:
   m_ObjectHideFlags: 0

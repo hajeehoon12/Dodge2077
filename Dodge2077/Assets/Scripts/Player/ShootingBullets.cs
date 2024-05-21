@@ -23,6 +23,7 @@ public class ShootingBullets : MonoBehaviour
 
     private IEnumerator Fire()
     {
+        //yield return new WaitForSeconds(0.5f);
         yield return null;  //넣은 이유는 첫 탄환 속도 설정이 0으로 되어서 게임이 시작하자마자 1프레임 후에 발사되도록 하였다.
         while (true)
         {

@@ -17,12 +17,12 @@ public class PlayerSkill2 : MonoBehaviour
 
     public CharacterStatHandler playerStat;
 
-    public BoxCollider2D collider;
+    public BoxCollider2D colliders;
 
     private void Awake()
     {
         playerStat = GetComponent<CharacterStatHandler>();
-        collider = GetComponent<BoxCollider2D>();
+        colliders = GetComponent<BoxCollider2D>();
     }
 
     private void Start()

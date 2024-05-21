@@ -8,6 +8,6 @@ public class CollderSizeDown : Item_Abstract
     }
     public override void TakeItem(PlayerSkill2 _player)
     {
-        _player.collider.size *= 0.9f;
+        _player.colliders.size *= 0.9f;
     }
 }
