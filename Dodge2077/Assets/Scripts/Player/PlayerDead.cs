@@ -16,12 +16,9 @@ public class PlayerDead : MonoBehaviour
         Debug.Log("Collider Name : " + other.gameObject.name);
         DataManager.Instance.playerHit += 10;
 
-        //if(other.gameObject.CompareTag("EnemyBullet"))
-        //{
 
-        //}
+        if (hpSystem != null) hpSystem.TakeDamage(10.0f);
 
-        //if (hpSystem != null) hpSystem.TakeDamage(1.0f);
     }
 
     private void OnParticleCollision(GameObject other)

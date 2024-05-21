@@ -19,6 +19,7 @@ public class PlayerSkill2 : MonoBehaviour
 
     //HP관리시스템 ( 이곳에서 대미지를 받는 등 HP관련 시스템을 처리한다 )
     private HPSystem hpSystem;
+    private MPSystem mpSystem;
 
     public PlayerHPManager _playerHPManager;
     public PlayerMPManager _playerMPManager;
@@ -29,6 +30,8 @@ public class PlayerSkill2 : MonoBehaviour
     {
         playerStat = GetComponent<CharacterStatHandler>();
         colliders = GetComponent<BoxCollider2D>();
+        hpSystem = GetComponent<HPSystem>();
+        mpSystem = GetComponent<MPSystem>();
     }
 
     private void Start()
@@ -39,9 +42,21 @@ public class PlayerSkill2 : MonoBehaviour
         //플레이어 능력치로 초기화 ( Awake에 작성하면 오류가 나온다 )
         playerStat.PlayerInit();
 
-        hpSystem.OnDamage += _playerHPManager.TakeDamage;    //플레이어 HP와 연결
-        //hpSystem.OnHeal += _MyHP.TakeDamage;
-        //hpSystem.OnDeath += _MyHP.TakeDamage;     //죽으면 게임오버 창과 연결
+        if (hpSystem != null)
+        {
+            _playerHPManager.ChangeMaxHP(playerStat.CurrentStat.MaxHP);
+            _playerHPManager.ChangeCurrentHP(playerStat.CurrentStat.MaxHP);
+            _playerMPManager.ChangeMaxMP(mpSystem.MaxMP);
+            _playerMPManager.ChangeCurrentMP(mpSystem.CurrentMP);
+
+            hpSystem.OnDamage += _playerHPManager.TakeDamage;
+            hpSystem.OnHeal += _playerHPManager.TakeDamage;
+            //hpSystem.OnDeath += _MyHP.TakeDamage;     //죽으면 게임오버 창과 연결
+
+            mpSystem.OnUseMana += _playerMPManager.UseMana;
+            mpSystem.OnFillMana += _playerMPManager.UseMana;
+        }
+        else Debug.Log("hpSystem is null");
     }
 
     // Update is called once per frame
@@ -51,6 +66,8 @@ public class PlayerSkill2 : MonoBehaviour
         //Debug.Log(timeWatch);
         if (Input.GetKeyDown(KeyCode.Delete))
         {
+            if (mpSystem.CurrentMP < 0.1f) return;
+
             //Invoke("Pressing", 0.5f);
             Pressing();
             timeWatch = true;
@@ -60,12 +77,17 @@ public class PlayerSkill2 : MonoBehaviour
 
             player_Skill1.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);
             player_Skill2.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);
+
+            mpSystem.UseMana(0.1f);
         }
 
 
         if (Input.GetKey(KeyCode.Delete) && isPressing)
         {
+            if(mpSystem.CurrentMP < 0.1f) return;
+
             // when pressing go for animation of Special Skill
+            mpSystem.UseMana(0.1f);
         }
         else if (timeWatch)
         {
@@ -74,6 +96,8 @@ public class PlayerSkill2 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.End))
         {
+            if (mpSystem.CurrentMP < 30.0f) return;
+
             AudioManager.instance.PlaySFX("MachineGun", 0.1f);
             ShakeCamera.instance.MakeCameraShake(1f, 0.1f, 0.1f);
 
@@ -89,7 +113,7 @@ public class PlayerSkill2 : MonoBehaviour
                 bullet.GetComponent<Bullet>().Init(10, 5, 1); // 총알 데미지, 관통력, 속력
             }
 
-
+            mpSystem.UseMana(30.0f);
         }
 
     }

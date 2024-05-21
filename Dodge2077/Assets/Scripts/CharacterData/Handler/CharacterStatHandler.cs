@@ -20,7 +20,7 @@ public class CharacterStatHandler : MonoBehaviour
 
     public void PlayerInit()
     {
-        CurrentStat.MaxHP = 100.0f;
+        CurrentStat.MaxHP = 1000.0f;
         CurrentStat.MoveSpeed = 2.5f;
         CurrentStat.Damage = 1.0f;
         CurrentStat.Penetration = 0;

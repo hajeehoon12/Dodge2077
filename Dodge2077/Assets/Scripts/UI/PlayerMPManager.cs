@@ -6,16 +6,24 @@ using UnityEngine.UI;
 public class PlayerMPManager : MonoBehaviour
 {
     [SerializeField] private Slider hpBarSlider = null;
+    [SerializeField] private bool Is2P;
 
     private float PlayerMaxMP;
     private float PlayerCurrentMP;
+
+    private void Start()
+    {
+        if (DataManager.Instance.is1P)
+        {
+            if (Is2P) gameObject.SetActive(false);
+        }
+    }
 
     void Update()
     {
         
     }
 
-    //보스가 데미지를 받을 때 ( 매개변수에 음수를 넣어 체력 회복용도로도 가능 )
     public void UseMana(float mana)
     {
         PlayerCurrentMP -= mana;
@@ -29,13 +37,16 @@ public class PlayerMPManager : MonoBehaviour
         hpBarSlider.value = PlayerCurrentMP / PlayerMaxMP;
     }
 
-    //HP변경용 함수 ( 존재하는 이유는 BossMaxHP를 public하면 Inspector창에서 수정할 수 있기 때문에 오류 방지를 위해사 )
     public void ChangeMaxMP(float newMaxMP)
     {
         PlayerMaxMP = newMaxMP;
+
+        Debug.Log("CurrentMana: " + PlayerCurrentMP); Debug.Log("MaxMana: " + PlayerMaxMP);
     }
     public void ChangeCurrentMP(float newCurrentMP)
     {
         PlayerCurrentMP = newCurrentMP;
+
+        Debug.Log("CurrentMana: " + PlayerCurrentMP); Debug.Log("MaxMana: " + PlayerMaxMP);
     }
 }
