@@ -49,16 +49,25 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EndMotion(float Time)
     {
-
-
-        
         yield return new WaitForSeconds(10f);
         AudioManager.instance.StopBGM();
         DOTween.KillAll();
         DataManager.Instance.IsHighScoreChanged(Time);
         SceneManager.LoadScene("GameWin");
-        
+    }
 
+    public void WhenGameLose()
+    {
+        ShakeCamera.instance.MakeCameraShake(6f, 0.05f, 0.1f);
+        StartCoroutine(PlayerDieMotion());
+        AudioManager.instance.StopBGM();
+        DOTween.KillAll();
+    }
+
+    private IEnumerator PlayerDieMotion()
+    {
+        yield return new WaitForSeconds(10f);
+        SceneManager.LoadScene("GameLose");
     }
 
 
