@@ -37,6 +37,7 @@ public class BossRotate : MonoBehaviour
 
     public void Start()
     {
+        DataManager.Instance.playerHit = 0;
         Invoke("StartRotate", 3f);
     }
 

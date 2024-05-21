@@ -29,9 +29,21 @@ public class GameManager : MonoBehaviour
     public void StageEnd(float Time)
     {
         AudioManager.instance.StopBGM();
-        DataManager.Instance.isHighScoreChanged(Time);
+        
+        StartCoroutine(EndMotion(Time));
+        
+    }
+
+    private IEnumerator EndMotion(float Time)
+    {
+
+
         AudioManager.instance.PlayBGM("Victory");
+        yield return new WaitForSeconds(10f);
+        AudioManager.instance.StopBGM();
         SceneManager.LoadScene("StartScene");
+        DataManager.Instance.IsHighScoreChanged(Time);
+
     }
 
 
