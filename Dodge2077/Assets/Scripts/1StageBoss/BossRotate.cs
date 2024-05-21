@@ -27,6 +27,9 @@ public class BossRotate : MonoBehaviour
     public bool whiteDead = false;
     public bool blackDead = false;
 
+    public float Timer = 0f;
+    
+
 
     // Update is called once per frame
 
@@ -35,6 +38,11 @@ public class BossRotate : MonoBehaviour
     public void Start()
     {
         Invoke("StartRotate", 3f);
+    }
+
+    private void Update()
+    {
+        Timer += Time.deltaTime;
     }
 
     private void StartRotate()
@@ -70,6 +78,7 @@ public class BossRotate : MonoBehaviour
             _darkHyuk.GetComponent<Animator>().SetBool("isDead", true);
             _whiteHyuk.GetComponent<Animator>().SetBool("isDead", true);
             StopCoroutine(BossCoroutine);
+            GameManager.Instance.StageEnd(Timer);
         }
     }
 

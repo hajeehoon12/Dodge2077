@@ -26,6 +26,14 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void StageEnd(float Time)
+    {
+        AudioManager.instance.StopBGM();
+        DataManager.Instance.isHighScoreChanged(Time);
+        AudioManager.instance.PlayBGM("Victory");
+        SceneManager.LoadScene("StartScene");
+    }
+
 
 
     // Update is called once per frame

@@ -967,6 +967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is1P: 1
   isEasy: 1
+  highScore: 0
+  curScore: 0
 --- !u!4 &326424855
 Transform:
   m_ObjectHideFlags: 0
@@ -1322,7 +1324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     MaxHP: 0
-    MoveSpeed: 3
+    MoveSpeed: 2.5
     Damage: 1
     Penetration: 0
     BulletSpeed: 0
@@ -2110,7 +2112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     MaxHP: 0
-    MoveSpeed: 3
+    MoveSpeed: 2.5
     Damage: 1
     Penetration: 0
     BulletSpeed: 0
@@ -5096,6 +5098,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 605a761f14e00bd459272770e465c88a, type: 3}
   - name: Boss1Phase2
     clip: {fileID: 8300000, guid: cdbc75fefc02f8441966fbea4ca95246, type: 3}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 689ab33c77a72d649990c3ef41eb773f, type: 3}
   bgmPlayer: {fileID: 1156235338}
   sfxPlayer:
   - {fileID: 30755646}
