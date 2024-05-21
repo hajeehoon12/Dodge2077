@@ -20,6 +20,8 @@ public class BlurEffect : MonoBehaviour
     public Image imgEasy;
     public Image imgHard;
 
+    public GameObject HighScore;
+
 
     private bool isButtonPressed = false;
     //private bool isModePressed = false;
@@ -45,6 +47,7 @@ public class BlurEffect : MonoBehaviour
         image.DOFade(1, 10f);
         imgP1.DOFade(1, 10f);
         imgEasy.DOFade(1, 10f);
+        HighScore.SetActive(false);
         //imgP2.DOFade(1, 10f);
         //DOTween.To(() => color.a, x => color.a = x, 255, 10);
     }
