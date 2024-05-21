@@ -18,6 +18,16 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStat.BulletCoolTime = baseStats.BulletCoolTime;
     }
 
+    public void PlayerInit()
+    {
+        CurrentStat.MaxHP = 1.0f;
+        CurrentStat.MoveSpeed = 2.5f;
+        CurrentStat.Damage = 1.0f;
+        CurrentStat.Penetration = 0;
+        CurrentStat.BulletSpeed = 1.0f;
+        CurrentStat.BulletCoolTime = 0.5f;
+    }
+
     //단순한 스탯변경용도
     public void ChangeMaxHP(float _maxHP)
     {

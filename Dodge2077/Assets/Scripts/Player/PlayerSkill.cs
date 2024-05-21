@@ -30,6 +30,9 @@ public class PlayerSkill : MonoBehaviour
     {
         player_Skill1.SetActive(false);
         player_Skill2.SetActive(false);
+
+        //플레이어 능력치로 초기화 ( Awake에 작성하면 오류가 나온다 )
+        playerStat.PlayerInit();
     }
 
     // Update is called once per frame
@@ -45,9 +48,6 @@ public class PlayerSkill : MonoBehaviour
             // Skill Start Animation
             player_Skill1.SetActive(true);
             player_Skill2.SetActive(true);
-
-            //player_Skill1.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
-            //player_Skill2.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
 
             player_Skill1.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);
             player_Skill2.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);

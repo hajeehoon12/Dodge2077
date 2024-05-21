@@ -17,7 +17,6 @@ public class SkillTriangle : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        //StartCoroutine(Firing(_shootingBullets.coolTime));
         playerStat = _player.GetComponent<CharacterStatHandler>();
     }
 
@@ -41,16 +40,6 @@ public class SkillTriangle : MonoBehaviour
     {
         StopCoroutine(coroutine);
     }
-
-
-    //private void Update()
-    //{
-     //   if (Time.time > nextFire)
-     //   {
-     //       nextFire = Time.time + fireRate;
-     //       Shooting();
-     //   }
-    //}
 
     private void Shooting()
     {

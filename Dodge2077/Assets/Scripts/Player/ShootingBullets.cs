@@ -7,17 +7,7 @@ public class ShootingBullets : MonoBehaviour
     public GameObject _bullet;
     public GameObject _poolManager;
 
-    //public float _damage; // 총알 데미지
-    //public int _per; // 총알 관통력
-    //public float _bulletSpeed; // 총알 속력
-
-    //public float coolTime = 1f;
-    private float lastFireTime;
-
     private CharacterStatHandler playerStat;
-
-    // Start is called before the first frame update
-
 
     private void Awake()
     {
@@ -28,13 +18,12 @@ public class ShootingBullets : MonoBehaviour
 
     void Start()
     {
-        //_damage = 1;
-        //_per = 0; // penetrate 0 enemy
         StartCoroutine(Fire()); // coolTime 마다 총알을 발사하라
     }
 
     private IEnumerator Fire()
     {
+        yield return null;  //넣은 이유는 첫 탄환 속도 설정이 0으로 되어서 게임이 시작하자마자 1프레임 후에 발사되도록 하였다.
         while (true)
         {
             Shoot();
