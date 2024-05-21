@@ -2319,6 +2319,7 @@ GameObject:
   - component: {fileID: 1266959003}
   - component: {fileID: 1266959002}
   - component: {fileID: 1266959001}
+  - component: {fileID: 1266959004}
   m_Layer: 5
   m_Name: PressStart
   m_TagString: Untagged
@@ -2388,19 +2389,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1266958999}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 369483285}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SceneChanged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1266958999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,6 +2665,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1266959004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266958996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340eec23129ebbf4a8faebbf3eac2bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startBtn: {fileID: 1266958998}
 --- !u!1 &1653628728
 GameObject:
   m_ObjectHideFlags: 0

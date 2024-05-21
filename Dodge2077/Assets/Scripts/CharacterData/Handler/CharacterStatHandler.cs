@@ -22,7 +22,7 @@ public class CharacterStatHandler : MonoBehaviour
     {
         CurrentStat.MaxHP = 1000.0f;
         CurrentStat.MoveSpeed = 2.5f;
-        CurrentStat.Damage = 1.0f;
+        CurrentStat.Damage = 3f;
         CurrentStat.Penetration = 0;
         CurrentStat.BulletSpeed = 1.0f;
         CurrentStat.BulletCoolTime = 0.2f;
