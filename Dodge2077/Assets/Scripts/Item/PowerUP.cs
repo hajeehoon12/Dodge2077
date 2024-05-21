@@ -1,13 +1,12 @@
 ﻿
 public class PowerUP : Item_Abstract
 {
-    //protected override IEnumerator DeleteThisItem()
-    //{
-    //    yield return new WaitForSeconds(10.0f);
-    //    Destroy(gameObject);
-    //}
-    public override void TakeItem(CharacterStatHandler statHandler)
+    public override void TakeItem(PlayerSkill _player)
     {
-        statHandler.AddDamage(0.5f);
+        _player.playerStat.AddDamage(0.5f);
+    }
+    public override void TakeItem(PlayerSkill2 _player)
+    {
+        _player.playerStat.AddDamage(0.5f);
     }
 }

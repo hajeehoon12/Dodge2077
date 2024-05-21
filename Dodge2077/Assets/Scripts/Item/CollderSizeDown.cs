@@ -1,13 +1,13 @@
 ﻿
 public class CollderSizeDown : Item_Abstract
 {
-    //protected override IEnumerator DeleteThisItem()
-    //{
-    //    yield return new WaitForSeconds(10.0f);
-    //    Destroy(gameObject);
-    //}
-    public override void TakeItem(CharacterStatHandler statHandler)
+    public override void TakeItem(PlayerSkill _player)
     {
+        _player.collider.size *= 0.9f;
 
+    }
+    public override void TakeItem(PlayerSkill2 _player)
+    {
+        _player.collider.size *= 0.9f;
     }
 }

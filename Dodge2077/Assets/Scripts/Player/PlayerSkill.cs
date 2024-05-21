@@ -15,12 +15,15 @@ public class PlayerSkill : MonoBehaviour
     private bool isPressing = false; // To check pressing
     private bool timeWatch = false; // To check when you start pressing
 
-    private CharacterStatHandler playerStat;
+    public CharacterStatHandler playerStat;
+
+    public BoxCollider2D collider;
 
 
     private void Awake()
     {
         playerStat = GetComponent<CharacterStatHandler>();
+        collider = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
@@ -46,8 +49,8 @@ public class PlayerSkill : MonoBehaviour
             //player_Skill1.transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
             //player_Skill2.transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
 
-            player_Skill1.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
-            player_Skill2.GetComponent<SkillTriangle>().StartFire(GetComponent<ShootingBullets>().coolTime);
+            player_Skill1.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);
+            player_Skill2.GetComponent<SkillTriangle>().StartFire(playerStat.CurrentStat.BulletCoolTime);
         }
 
 
@@ -89,11 +92,9 @@ public class PlayerSkill : MonoBehaviour
         if (collision.CompareTag("Item"))
         {
             //TakeItem을 호출
-            collision.GetComponent<Item_Abstract>().TakeItem(playerStat);
+            collision.GetComponent<Item_Abstract>().TakeItem(this);
             //아이템 소멸
             Destroy(collision.gameObject);
-            //Debug.Log($"Power: {playerStat.CurrentStat.Damage}");
-            //Debug.Log($"Speed: {playerStat.CurrentStat.MoveSpeed}");
         }
     }
 
