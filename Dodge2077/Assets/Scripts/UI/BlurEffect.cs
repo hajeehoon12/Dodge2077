@@ -44,7 +44,7 @@ public class BlurEffect : MonoBehaviour
 
     void Start()
     {
-        image?.DOFade(1, 5f);
+        image?.DOFade(0.98f, 5f);
         imgP1?.DOFade(1, 5f);
         imgEasy?.DOFade(1, 5f);
         HighScore?.SetActive(false);
