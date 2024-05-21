@@ -1226,6 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarSlider: {fileID: 1749832119}
+  Is2P: 1
 --- !u!1 &323933291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1819,7 @@ GameObject:
   - component: {fileID: 457836348}
   - component: {fileID: 457836347}
   - component: {fileID: 457836346}
+  - component: {fileID: 457836357}
   m_Layer: 7
   m_Name: Player2
   m_TagString: Untagged
@@ -2003,6 +2005,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8085a46e2fcdf844a75c7c2ffc7afc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &457836357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457836345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ef96be90a21934fa2bd9da7c73226c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  CurrentMP: 0
+  MaxMP: 0
 --- !u!1 &498095390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,6 +2071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarSlider: {fileID: 395671496}
+  Is2P: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,6 +2531,7 @@ GameObject:
   - component: {fileID: 622262789}
   - component: {fileID: 622262791}
   - component: {fileID: 622262790}
+  - component: {fileID: 622262792}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -2698,6 +2717,21 @@ MonoBehaviour:
     Penetration: 1
     BulletSpeed: 1
     BulletCoolTime: 0.2
+--- !u!114 &622262792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622262782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ef96be90a21934fa2bd9da7c73226c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDead: 0
+  CurrentMP: 0
+  MaxMP: 0
 --- !u!1 &637395952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarSlider: {fileID: 176711130}
+  Is2P: 1
 --- !u!1001 &695177363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5036,6 +5071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarSlider: {fileID: 2106780208}
+  Is2P: 0
 --- !u!4 &1404473020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8029142899459995171, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}

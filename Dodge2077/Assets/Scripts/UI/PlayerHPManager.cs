@@ -6,9 +6,18 @@ using UnityEngine.UI;
 public class PlayerHPManager : MonoBehaviour
 {
     [SerializeField] private Slider hpBarSlider = null;
+    [SerializeField] private bool Is2P;
 
     private float PlayerMaxHP;
     private float PlayerCurrentHP;
+
+    private void Start()
+    {
+        if(DataManager.Instance.is1P)
+        {
+            if(Is2P) gameObject.SetActive(false);
+        }
+    }
 
     void Update()
     {
