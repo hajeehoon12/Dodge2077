@@ -28,6 +28,8 @@ public class HPSystem : MonoBehaviour
     {
         if (statHandler == null) Debug.Log("null");//
         CurrentHealth = MaxHealth;
+
+        //if(!gameObject.CompareTag("Player"))
         OnDeath += bossRotate.BossPhase; // Call func BossPhase()
     }
 
@@ -53,6 +55,7 @@ public class HPSystem : MonoBehaviour
         //0이하일 시, 죽을 때 이벤트를 불러온다.
         if (CurrentHealth <= 0.0f && !isDead)
         {
+            
             isDead = true;
             OnDeath?.Invoke();
         }

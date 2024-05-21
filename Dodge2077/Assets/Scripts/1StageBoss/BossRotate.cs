@@ -117,7 +117,7 @@ public class BossRotate : MonoBehaviour
             time += 0.01f/ duration;
             if(whiteDead) _HpSys.TakeDamage(-2);
             else _HpSys.TakeDamage(-1.5f);
-            yield return null;
+            
             yield return new WaitForSeconds(0.01f);
         }
     }

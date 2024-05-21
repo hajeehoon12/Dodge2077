@@ -41,12 +41,12 @@ public class PlayerMPManager : MonoBehaviour
     {
         PlayerMaxMP = newMaxMP;
 
-        Debug.Log("CurrentMana: " + PlayerCurrentMP); Debug.Log("MaxMana: " + PlayerMaxMP);
+        //Debug.Log("CurrentMana: " + PlayerCurrentMP); Debug.Log("MaxMana: " + PlayerMaxMP);
     }
     public void ChangeCurrentMP(float newCurrentMP)
     {
         PlayerCurrentMP = newCurrentMP;
 
-        Debug.Log("CurrentMana: " + PlayerCurrentMP); Debug.Log("MaxMana: " + PlayerMaxMP);
+        //Debug.Log("CurrentMana: " + PlayerCurrentMP); Debug.Log("MaxMana: " + PlayerMaxMP);
     }
 }
