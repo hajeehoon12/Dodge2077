@@ -21,7 +21,7 @@ public class PlayerDead : MonoBehaviour
 
         //}
 
-        if (hpSystem != null) hpSystem.TakeDamage(1.0f);
+        //if (hpSystem != null) hpSystem.TakeDamage(1.0f);
     }
 
     private void OnParticleCollision(GameObject other)
@@ -29,6 +29,6 @@ public class PlayerDead : MonoBehaviour
         Debug.Log("Particle Name :" + other.gameObject.name);
         DataManager.Instance.playerHit += 1;
 
-        if (hpSystem != null) hpSystem.TakeDamage(1.0f);
+        //if (hpSystem != null) hpSystem.TakeDamage(1.0f);
     }
 }

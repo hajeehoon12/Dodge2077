@@ -25,7 +25,7 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStat.Damage = 1.0f;
         CurrentStat.Penetration = 0;
         CurrentStat.BulletSpeed = 1.0f;
-        CurrentStat.BulletCoolTime = 0.5f;
+        CurrentStat.BulletCoolTime = 0.2f;
     }
 
     //단순한 스탯변경용도

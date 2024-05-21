@@ -6439,6 +6439,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 605a761f14e00bd459272770e465c88a, type: 3}
   - name: Boss1Phase2
     clip: {fileID: 8300000, guid: cdbc75fefc02f8441966fbea4ca95246, type: 3}
+  - name: Victory
+    clip: {fileID: 8300000, guid: 689ab33c77a72d649990c3ef41eb773f, type: 3}
   bgmPlayer: {fileID: 1156235338}
   sfxPlayer:
   - {fileID: 30755646}

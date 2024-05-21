@@ -28,10 +28,21 @@ public class GameManager : MonoBehaviour
         DOTween.KillAll();
         SceneManager.LoadScene("MainScene");
     }
+
+    
+
+
+    public void GoMain()
+    {
+        DOTween.KillAll();
+        SceneManager.LoadScene("StartScene");
+    }
+
     public void StageEnd(float Time)
     {
         AudioManager.instance.StopBGM();
-        
+        AudioManager.instance.PlayBGM("Victory");
+        ShakeCamera.instance.MakeCameraShake(6f, 0.05f, 0.1f);
         StartCoroutine(EndMotion(Time));
         
     }
@@ -40,12 +51,13 @@ public class GameManager : MonoBehaviour
     {
 
 
-        AudioManager.instance.PlayBGM("Victory");
+        
         yield return new WaitForSeconds(10f);
         AudioManager.instance.StopBGM();
         DOTween.KillAll();
-        SceneManager.LoadScene("StartScene");
         DataManager.Instance.IsHighScoreChanged(Time);
+        SceneManager.LoadScene("GameWin");
+        
 
     }
 
