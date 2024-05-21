@@ -41,7 +41,7 @@ public class DarkHyuk : MonoBehaviour
     public void CallDark()
     {
 
-        switch (patternNum%4)
+        switch (Random.Range(0,4))//patternNum % 4
         {
             case 0:
                 FanShot();

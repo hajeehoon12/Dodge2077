@@ -60,7 +60,7 @@ public class WhiteHyuk : MonoBehaviour
     public void CallWhite()
     {
 
-        switch (patternNum%4)
+        switch (Random.Range(0,4))// patternNum%4
         {
             case 0:
                 StoneShot();

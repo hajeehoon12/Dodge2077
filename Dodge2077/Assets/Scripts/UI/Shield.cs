@@ -11,7 +11,7 @@ public class Shield : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // game mouse pos = main camera world pos -make same fun
         this.transform.position = mousePos + new Vector3(0,0,20);
