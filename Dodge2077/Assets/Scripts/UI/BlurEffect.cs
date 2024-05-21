@@ -33,8 +33,8 @@ public class BlurEffect : MonoBehaviour
     {
         image = GetComponent<RawImage>();
         image?.DOFade(0, 0f);
-        imgP1?.DOFade(0, 0f);
-        imgP2?.DOFade(0, 0f);
+        imgP1.DOFade(0, 0f);
+        imgP2.DOFade(0, 0f);
         imgEasy?.DOFade(0, 0f);
         imgHard?.DOFade(0, 0f);
 
@@ -45,8 +45,17 @@ public class BlurEffect : MonoBehaviour
     void Start()
     {
         image?.DOFade(0.98f, 5f);
-        imgP1?.DOFade(1, 5f);
-        imgEasy?.DOFade(1, 5f);
+        if (DataManager.Instance.is1P) imgP1.DOFade(1, 5f);
+        else
+        {
+            imgP1.DOFade(1, 5f);
+            isButtonPressed = true;
+        }
+
+        if (DataManager.Instance.isEasy) imgEasy.DOFade(1, 5f);
+        else imgHard.DOFade(1, 5f);
+
+
         HighScore?.SetActive(false);
         //imgP2.DOFade(1, 10f);
         //DOTween.To(() => color.a, x => color.a = x, 255, 10);
