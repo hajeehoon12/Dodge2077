@@ -1976,6 +1976,8 @@ MonoBehaviour:
   player_Skill2: {fileID: 54797438}
   player: {fileID: 457836345}
   playerStat: {fileID: 0}
+  hpSystem: {fileID: 0}
+  mpSystem: {fileID: 0}
   _playerHPManager: {fileID: 637395954}
   _playerMPManager: {fileID: 316464955}
   colliders: {fileID: 0}
@@ -2594,6 +2596,8 @@ MonoBehaviour:
   player_Skill2: {fileID: 921831856}
   player: {fileID: 622262782}
   playerStat: {fileID: 0}
+  hpSystem: {fileID: 0}
+  mpSystem: {fileID: 0}
   _playerHPManager: {fileID: 498095392}
   _playerMPManager: {fileID: 1397045734}
   colliders: {fileID: 0}
@@ -3886,6 +3890,8 @@ MonoBehaviour:
   speedUP: {fileID: 5786221771177963959, guid: b5674106457a9a44ca129aa26843c3d0, type: 3}
   bulletAttackSpeedUP: {fileID: 8951872522882444180, guid: f9ccb0c0f99556749af66e69b4d4c31b, type: 3}
   collderSizeDown: {fileID: 5786221771177963959, guid: a27e2b95e19be2d41a1a96efde655651, type: 3}
+  hpPotion: {fileID: 3394002344346026766, guid: 2c1c2d094bcbb794dba3f684c635616f, type: 3}
+  mpPotion: {fileID: 398043471936435554, guid: 4f002cdf0e6669b40b8bf2dd9ba7a33d, type: 3}
 --- !u!4 &981265151
 Transform:
   m_ObjectHideFlags: 0

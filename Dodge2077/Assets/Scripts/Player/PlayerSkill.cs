@@ -18,8 +18,8 @@ public class PlayerSkill : MonoBehaviour
     public CharacterStatHandler playerStat;
 
     //HP관리시스템 ( 이곳에서 대미지를 받는 등 HP관련 시스템을 처리한다 )
-    private PlayerHPSystem hpSystem;
-    private MPSystem mpSystem;
+    public PlayerHPSystem hpSystem;
+    public MPSystem mpSystem;
 
     public PlayerHPManager _playerHPManager;
     public PlayerMPManager _playerMPManager;
