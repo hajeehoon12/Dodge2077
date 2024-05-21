@@ -7,7 +7,7 @@ public class PlayerDead : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collider Name : " + other.gameObject.name);
-        DataManager.Instance.playerHit += 1;
+        DataManager.Instance.playerHit += 10;
 
     }
 
