@@ -20,10 +20,6 @@ public class PlayerController2 : MonoBehaviour
     void Awake()
     {
         playerStat = GetComponent<CharacterStatHandler>();
-    }
-
-    private void Start()
-    {
         sprites = GetComponentInChildren<SpriteRenderer>();
         playerPos = GetComponentInChildren<Transform>();
         if (DataManager.Instance.is1P)
@@ -34,6 +30,11 @@ public class PlayerController2 : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+    }
+
+    private void Start()
+    {
+        
     }
     void FixedUpdate()
     {
