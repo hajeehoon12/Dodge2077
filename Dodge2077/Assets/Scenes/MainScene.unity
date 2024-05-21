@@ -1818,7 +1818,7 @@ GameObject:
   - component: {fileID: 457836349}
   - component: {fileID: 457836348}
   - component: {fileID: 457836347}
-  - component: {fileID: 457836346}
+  - component: {fileID: 457836358}
   - component: {fileID: 457836357}
   m_Layer: 7
   m_Name: Player2
@@ -1827,20 +1827,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &457836346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457836345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossRotate: {fileID: 114093026}
-  isDead: 0
 --- !u!114 &457836347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2019,6 +2005,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentMP: 0
   MaxMP: 0
+--- !u!114 &457836358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457836345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b08235066925b45b019a82a4fa6db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &498095390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,7 +2527,7 @@ GameObject:
   - component: {fileID: 622262788}
   - component: {fileID: 622262789}
   - component: {fileID: 622262791}
-  - component: {fileID: 622262790}
+  - component: {fileID: 622262793}
   - component: {fileID: 622262792}
   m_Layer: 7
   m_Name: Player
@@ -2683,20 +2681,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &622262790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622262782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossRotate: {fileID: 114093026}
-  isDead: 0
 --- !u!114 &622262791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,6 +2714,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentMP: 0
   MaxMP: 0
+--- !u!114 &622262793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622262782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b08235066925b45b019a82a4fa6db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &637395952
 GameObject:
   m_ObjectHideFlags: 0

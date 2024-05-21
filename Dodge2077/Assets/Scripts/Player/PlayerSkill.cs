@@ -18,7 +18,7 @@ public class PlayerSkill : MonoBehaviour
     public CharacterStatHandler playerStat;
 
     //HP관리시스템 ( 이곳에서 대미지를 받는 등 HP관련 시스템을 처리한다 )
-    private HPSystem hpSystem;
+    private PlayerHPSystem hpSystem;
     private MPSystem mpSystem;
 
     public PlayerHPManager _playerHPManager;
@@ -31,7 +31,7 @@ public class PlayerSkill : MonoBehaviour
     {
         playerStat = GetComponent<CharacterStatHandler>();
         colliders = GetComponent<BoxCollider2D>();
-        hpSystem = GetComponent<HPSystem>();
+        hpSystem = GetComponent<PlayerHPSystem>();
         mpSystem = GetComponent<MPSystem>();
     }
 
@@ -52,7 +52,7 @@ public class PlayerSkill : MonoBehaviour
 
             hpSystem.OnDamage += _playerHPManager.TakeDamage;
             hpSystem.OnHeal += _playerHPManager.TakeDamage;
-            //hpSystem.OnDeath += _MyHP.TakeDamage;     //죽으면 게임오버 창과 연결
+            hpSystem.OnDeath += GameManager.Instance.WhenGameLose;
 
             mpSystem.OnUseMana += _playerMPManager.UseMana;
             mpSystem.OnFillMana += _playerMPManager.UseMana;

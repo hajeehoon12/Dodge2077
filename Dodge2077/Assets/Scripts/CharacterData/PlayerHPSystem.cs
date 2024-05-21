@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HPSystem : MonoBehaviour
+public class PlayerHPSystem : MonoBehaviour
 {
     private CharacterStatHandler statHandler;
-    public BossRotate bossRotate;
 
     public event Action<float> OnDamage;        //대미지 받을 때
     public event Action<float> OnHeal;          //힐 받을 때
     public event Action OnDeath;                //죽을 때
     //public event Action OnInvincibilityEnd;     //무적 끝날 때
-
-    public bool isDead = false; // make true if dead 
 
     public float CurrentHealth{ get; set; }
     public float MaxHealth => statHandler.CurrentStat.MaxHP;
@@ -21,16 +18,11 @@ public class HPSystem : MonoBehaviour
     void Awake()
     {
         statHandler = GetComponent<CharacterStatHandler>();
-        //bossRotate = GetComponentInParent<BossRotate>();
     }
 
     void Start()
     {
-        if (statHandler == null) Debug.Log("null");//
         CurrentHealth = MaxHealth;
-
-        //if(!gameObject.CompareTag("Player"))
-        OnDeath += bossRotate.BossPhase; // Call func BossPhase()
     }
 
     void Update()
@@ -47,16 +39,15 @@ public class HPSystem : MonoBehaviour
         //힐이면 OnHeal이벤트 발생, 대미지면 OnDamage이벤트 발생
         if (_damage <= 0) OnHeal?.Invoke(_damage);
         if (_damage > 0) OnDamage?.Invoke(_damage);
-        //OnDamage?.Invoke(_damage);
+
         //0미만, 최대체력 초과로 넘어가지 않게 조정한다.
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0.0f, MaxHealth);
         //Debug.Log(CurrentHealth);//temp
 
         //0이하일 시, 죽을 때 이벤트를 불러온다.
-        if (CurrentHealth <= 0.0f && !isDead)
+        if (CurrentHealth <= 0.0f)
         {
-            
-            isDead = true;
+            Debug.Log("000000");
             OnDeath?.Invoke();
         }
     }
