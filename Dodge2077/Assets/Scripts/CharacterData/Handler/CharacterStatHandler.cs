@@ -16,12 +16,11 @@ public class CharacterStatHandler : MonoBehaviour
         CurrentStat.Penetration = baseStats.Penetration;
         CurrentStat.BulletSpeed = baseStats.BulletSpeed;
         CurrentStat.BulletCoolTime = baseStats.BulletCoolTime;
-        //PlayerInit();
     }
 
     public void PlayerInit()
     {
-        CurrentStat.MaxHP = 1.0f;
+        CurrentStat.MaxHP = 100.0f;
         CurrentStat.MoveSpeed = 2.5f;
         CurrentStat.Damage = 1.0f;
         CurrentStat.Penetration = 0;
