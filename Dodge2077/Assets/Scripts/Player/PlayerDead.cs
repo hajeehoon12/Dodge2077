@@ -14,7 +14,7 @@ public class PlayerDead : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collider Name : " + other.gameObject.name);
-        DataManager.Instance.playerHit += 10;
+        DataManager.Instance.playerHit += 15;
 
 
         if (hpSystem != null) hpSystem.TakeDamage(10.0f);

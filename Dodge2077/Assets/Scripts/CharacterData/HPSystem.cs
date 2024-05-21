@@ -48,7 +48,7 @@ public class HPSystem : MonoBehaviour
         //OnDamage?.Invoke(_damage);
         //0미만, 최대체력 초과로 넘어가지 않게 조정한다.
         CurrentHealth = Mathf.Clamp(CurrentHealth, 0.0f, MaxHealth);
-        Debug.Log(CurrentHealth);//temp
+        //Debug.Log(CurrentHealth);//temp
 
         //0이하일 시, 죽을 때 이벤트를 불러온다.
         if (CurrentHealth <= 0.0f && !isDead)
