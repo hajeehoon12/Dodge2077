@@ -18,8 +18,6 @@ public class DataManager : MonoBehaviour
 
     public int playerHit = 0;
 
-    public GameObject HightText;
-    public Text HighText;
 
 
     private void Awake()
@@ -37,29 +35,26 @@ public class DataManager : MonoBehaviour
         
     }
 
-    public void CallHighScore()
+    public void CallHighScore(GameObject HightText, Text HighText)
     {
         
         
         HightText.SetActive(true);
         Debug.Log("HighScore : " + PlayerPrefs.GetInt("BestScore").ToString());
         string inputText = "HighScore : " + PlayerPrefs.GetInt("BestScore").ToString();
-        DOTween.To(() => "", str => HighText.text = str, inputText, 5f).onComplete += HighTextOff;
+        DOTween.To(() => "", str => HighText.text = str, inputText, 5f).OnComplete(() => HightText.SetActive(false));
         //HighText.DOText(, 5f).onComplete += HighTextOff;
         //HighText.DOColor(Color.black, 5f).onComplete += HighTextOff;
     }
 
-    public void HighTextOff()
-    {
-        HightText.SetActive(false);
-    }
+ 
 
 
     public bool IsHighScoreChanged(float Time)
     {
         highScore = PlayerPrefs.GetInt("BestScore");
         
-        curScore = ((999999 / (int)Time) - playerHit * 10);
+        curScore = (999999 / (int)Time + playerHit * 1);
         //PlayCurScore.instance.text_score = curScore;
         
 

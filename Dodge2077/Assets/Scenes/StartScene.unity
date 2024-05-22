@@ -1543,8 +1543,6 @@ MonoBehaviour:
   highScore: 0
   curScore: 0
   playerHit: 0
-  HightText: {fileID: 1238362091}
-  HighText: {fileID: 1238362093}
 --- !u!4 &569313002
 Transform:
   m_ObjectHideFlags: 0
@@ -2903,6 +2901,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startBtn: {fileID: 1266958998}
   HighScoreBtn: {fileID: 135929579}
+  HighText: {fileID: 1238362093}
+  HighScoreObj: {fileID: 1238362091}
 --- !u!114 &1493926734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2964,7 +2964,7 @@ VideoPlayer:
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
 --- !u!4 &1653628730
