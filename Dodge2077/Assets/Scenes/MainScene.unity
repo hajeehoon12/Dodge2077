@@ -6468,6 +6468,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7f4aa26d5b55226409cda231ffaf869b, type: 3}
   - name: LaserMulti
     clip: {fileID: 8300000, guid: c9bb4171cafd3dd47829336ea4c8d988, type: 3}
+  - name: Defeat
+    clip: {fileID: 8300000, guid: 80399f8b0c9e5b64e8169e8b364507a8, type: 3}
   bgm:
   - name: Boss1
     clip: {fileID: 8300000, guid: 605a761f14e00bd459272770e465c88a, type: 3}
