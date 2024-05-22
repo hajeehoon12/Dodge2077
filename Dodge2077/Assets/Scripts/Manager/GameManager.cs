@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         ShakeCamera.instance.MakeCameraShake(6f, 0.05f, 0.1f);
         StartCoroutine(PlayerDieMotion());
         AudioManager.instance.StopBGM();
+        AudioManager.instance.PlayBGM("Defeat");
         
     }
 
