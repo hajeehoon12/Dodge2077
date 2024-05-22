@@ -64,12 +64,13 @@ public class GameManager : MonoBehaviour
         ShakeCamera.instance.MakeCameraShake(6f, 0.05f, 0.1f);
         StartCoroutine(PlayerDieMotion());
         AudioManager.instance.StopBGM();
-        DOTween.KillAll();
+        
     }
 
     private IEnumerator PlayerDieMotion()
     {
         yield return new WaitForSeconds(10f);
+        DOTween.KillAll();
         SceneManager.LoadScene("GameOver");
     }
 

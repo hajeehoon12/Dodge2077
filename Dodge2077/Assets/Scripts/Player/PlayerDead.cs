@@ -20,6 +20,7 @@ public class PlayerDead : MonoBehaviour
         if (hpSystem != null)
         {
             hpSystem.TakeDamage(10.0f);
+            if(other.name != "BulletEnemyTriangle")
             other.gameObject.SetActive(false);
         }
 
