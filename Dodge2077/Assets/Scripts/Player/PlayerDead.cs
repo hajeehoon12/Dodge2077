@@ -26,17 +26,17 @@ public class PlayerDead : MonoBehaviour
                     break;
                 default:
                     hpSystem.TakeDamage(10.0f);
+                    other.gameObject.SetActive(false);
                     break;
             
             }
-
-
-
-           
-            
-            other.gameObject.SetActive(false);
         }
 
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.name == "BulletEnemyTriangle(Clone)") hpSystem.TakeDamage(1.0f);
     }
 
     private void OnParticleCollision(GameObject other)
