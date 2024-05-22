@@ -30,12 +30,12 @@ public class CharacterStatHandler : MonoBehaviour
 
     public void PlayerInit_Hard()
     {
-        CurrentStat.MaxHP = 500.0f;
-        CurrentStat.MoveSpeed = 2.0f;
-        CurrentStat.Damage = 1f;
+        CurrentStat.MaxHP = 800.0f;
+        CurrentStat.MoveSpeed = 3.0f;
+        CurrentStat.Damage = 2f;
         CurrentStat.Penetration = 0;
         CurrentStat.BulletSpeed = 1.0f;
-        CurrentStat.BulletCoolTime = 0.5f;
+        CurrentStat.BulletCoolTime = 0.3f;
     }
 
     //단순한 스탯변경용도

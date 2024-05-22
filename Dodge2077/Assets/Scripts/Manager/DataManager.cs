@@ -54,7 +54,7 @@ public class DataManager : MonoBehaviour
     {
         highScore = PlayerPrefs.GetInt("BestScore");
         
-        curScore = ((999999 / (int)Time) - playerHit * 10);
+        curScore = (999999 / (int)Time + playerHit * 1);
         //PlayCurScore.instance.text_score = curScore;
         
 
