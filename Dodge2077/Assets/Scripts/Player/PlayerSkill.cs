@@ -18,8 +18,8 @@ public class PlayerSkill : MonoBehaviour
     public CharacterStatHandler playerStat;
 
     //HP관리시스템 ( 이곳에서 대미지를 받는 등 HP관련 시스템을 처리한다 )
-    private HPSystem hpSystem;
-    private MPSystem mpSystem;
+    public PlayerHPSystem hpSystem;
+    public MPSystem mpSystem;
 
     public PlayerHPManager _playerHPManager;
     public PlayerMPManager _playerMPManager;
@@ -31,7 +31,7 @@ public class PlayerSkill : MonoBehaviour
     {
         playerStat = GetComponent<CharacterStatHandler>();
         colliders = GetComponent<BoxCollider2D>();
-        hpSystem = GetComponent<HPSystem>();
+        hpSystem = GetComponent<PlayerHPSystem>();
         mpSystem = GetComponent<MPSystem>();
     }
 
@@ -41,7 +41,8 @@ public class PlayerSkill : MonoBehaviour
         player_Skill2.SetActive(false);
 
         //플레이어 능력치로 초기화 ( Awake에 작성하면 오류가 나온다 )
-        playerStat.PlayerInit();
+        if (DataManager.Instance.isEasy) playerStat.PlayerInit_Easy();
+        else playerStat.PlayerInit_Hard();
 
         if (hpSystem != null)
         {
@@ -52,7 +53,9 @@ public class PlayerSkill : MonoBehaviour
 
             hpSystem.OnDamage += _playerHPManager.TakeDamage;
             hpSystem.OnHeal += _playerHPManager.TakeDamage;
-            //hpSystem.OnDeath += _MyHP.TakeDamage;     //죽으면 게임오버 창과 연결
+            //hpSystem.OnDeath += GameManager.Instance.WhenGameLose;
+            //hpSystem.OnDeath += () => { gameObject.SetActive(false); };
+
 
             mpSystem.OnUseMana += _playerMPManager.UseMana;
             mpSystem.OnFillMana += _playerMPManager.UseMana;

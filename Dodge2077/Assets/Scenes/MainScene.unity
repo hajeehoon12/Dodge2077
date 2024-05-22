@@ -1818,7 +1818,7 @@ GameObject:
   - component: {fileID: 457836349}
   - component: {fileID: 457836348}
   - component: {fileID: 457836347}
-  - component: {fileID: 457836346}
+  - component: {fileID: 457836358}
   - component: {fileID: 457836357}
   m_Layer: 7
   m_Name: Player2
@@ -1827,20 +1827,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &457836346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457836345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossRotate: {fileID: 114093026}
-  isDead: 0
 --- !u!114 &457836347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,6 +1976,8 @@ MonoBehaviour:
   player_Skill2: {fileID: 54797438}
   player: {fileID: 457836345}
   playerStat: {fileID: 0}
+  hpSystem: {fileID: 0}
+  mpSystem: {fileID: 0}
   _playerHPManager: {fileID: 637395954}
   _playerMPManager: {fileID: 316464955}
   colliders: {fileID: 0}
@@ -2019,6 +2007,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentMP: 0
   MaxMP: 0
+--- !u!114 &457836358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457836345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b08235066925b45b019a82a4fa6db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &498095390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2529,7 +2529,7 @@ GameObject:
   - component: {fileID: 622262788}
   - component: {fileID: 622262789}
   - component: {fileID: 622262791}
-  - component: {fileID: 622262790}
+  - component: {fileID: 622262793}
   - component: {fileID: 622262792}
   m_Layer: 7
   m_Name: Player
@@ -2596,6 +2596,8 @@ MonoBehaviour:
   player_Skill2: {fileID: 921831856}
   player: {fileID: 622262782}
   playerStat: {fileID: 0}
+  hpSystem: {fileID: 0}
+  mpSystem: {fileID: 0}
   _playerHPManager: {fileID: 498095392}
   _playerMPManager: {fileID: 1397045734}
   colliders: {fileID: 0}
@@ -2683,20 +2685,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &622262790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 622262782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d26244e0760df04b88c7c1302d1fc43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossRotate: {fileID: 114093026}
-  isDead: 0
 --- !u!114 &622262791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,6 +2718,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentMP: 0
   MaxMP: 0
+--- !u!114 &622262793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622262782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b08235066925b45b019a82a4fa6db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &637395952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3890,6 +3890,8 @@ MonoBehaviour:
   speedUP: {fileID: 5786221771177963959, guid: b5674106457a9a44ca129aa26843c3d0, type: 3}
   bulletAttackSpeedUP: {fileID: 8951872522882444180, guid: f9ccb0c0f99556749af66e69b4d4c31b, type: 3}
   collderSizeDown: {fileID: 5786221771177963959, guid: a27e2b95e19be2d41a1a96efde655651, type: 3}
+  hpPotion: {fileID: 3394002344346026766, guid: 2c1c2d094bcbb794dba3f684c635616f, type: 3}
+  mpPotion: {fileID: 398043471936435554, guid: 4f002cdf0e6669b40b8bf2dd9ba7a33d, type: 3}
 --- !u!4 &981265151
 Transform:
   m_ObjectHideFlags: 0
@@ -6929,6 +6931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97162c7a93b81e74aa5264a0c885c4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player1: {fileID: 622262786}
+  _player2: {fileID: 457836355}
 --- !u!4 &2055859279
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class BossRotate : MonoBehaviour
 {
     public WhiteHyuk _whiteHyuk;
     public DarkHyuk _darkHyuk;
-    public HPSystem _HpSys;
+    public BossHPSystem _HpSys;
 
     public Text Boss1;
     public Text Boss2;
@@ -55,12 +55,12 @@ public class BossRotate : MonoBehaviour
     public void BossPhase() // select boss phase
     {
 
-        if (_whiteHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0)
+        if (_whiteHyuk.GetComponentInChildren<BossHPSystem>().CurrentHealth <= 0)
         {
             
             whiteDead = true;// if whiteHyuk is Dead
         }
-        if (_darkHyuk.GetComponentInChildren<HPSystem>().CurrentHealth <= 0)  // if darkHyuk is Dead
+        if (_darkHyuk.GetComponentInChildren<BossHPSystem>().CurrentHealth <= 0)  // if darkHyuk is Dead
         {  
             blackDead = true;
         }
@@ -99,7 +99,7 @@ public class BossRotate : MonoBehaviour
         if (whiteDead)
         {
             transform.DORotate(secondRotate, 0.3f);   
-            _HpSys = _darkHyuk.GetComponent<HPSystem>();
+            _HpSys = _darkHyuk.GetComponent<BossHPSystem>();
             DOTween.To(() => "", str => Boss2.text = str, "∫–≥Î«— æÓµ“¿« «ı∏≈¥‘", 1.5f);
             _whiteHyuk.GetComponent<Animator>().SetBool("isDead", true);
 
@@ -107,7 +107,7 @@ public class BossRotate : MonoBehaviour
         else
         {
             transform.DORotate(firstRotate, 0.3f);
-            _HpSys = _whiteHyuk.GetComponent<HPSystem>();
+            _HpSys = _whiteHyuk.GetComponent<BossHPSystem>();
             DOTween.To(() => "", str => Boss1.text = str, "∫–≥Î«— ∫˚¿« «ı∏≈¥‘", 1.5f);
             _darkHyuk.GetComponent<Animator>().SetBool("isDead", true);
         }

@@ -39,7 +39,7 @@ public abstract class Item_Abstract : MonoBehaviour
 
     private IEnumerator DeleteThisItem()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(5.0f);
         Debug.Log("Destroy");
         Destroy(gameObject);
     }

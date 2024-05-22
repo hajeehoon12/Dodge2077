@@ -15,13 +15,13 @@ public class DarkHyuk : MonoBehaviour
     //스탯
     private CharacterStatHandler stat;
     //HP관리시스템 ( 이곳에서 대미지를 받는 등 HP관련 시스템을 처리한다 )
-    private HPSystem hpSystem;
+    private BossHPSystem hpSystem;
 
     private void Awake()
     {
         //스탯 관련 컴포넌트 추가 ( HPSystem스크립트는 반드시 CharacterStatHandler와 같은 오브젝트에 있어야 한다 )
         stat = GetComponent<CharacterStatHandler>();
-        hpSystem = GetComponent<HPSystem>();
+        hpSystem = GetComponent<BossHPSystem>();
     }
 
     private void Start()
