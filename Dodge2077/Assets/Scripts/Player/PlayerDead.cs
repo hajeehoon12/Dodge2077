@@ -17,7 +17,11 @@ public class PlayerDead : MonoBehaviour
         DataManager.Instance.playerHit += 10;
 
 
-        if (hpSystem != null) hpSystem.TakeDamage(10.0f);
+        if (hpSystem != null)
+        {
+            hpSystem.TakeDamage(10.0f);
+            other.gameObject.SetActive(false);
+        }
 
     }
 

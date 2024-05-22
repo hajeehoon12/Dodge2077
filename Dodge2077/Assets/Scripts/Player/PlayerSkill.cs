@@ -41,7 +41,8 @@ public class PlayerSkill : MonoBehaviour
         player_Skill2.SetActive(false);
 
         //플레이어 능력치로 초기화 ( Awake에 작성하면 오류가 나온다 )
-        playerStat.PlayerInit();
+        if (DataManager.Instance.isEasy) playerStat.PlayerInit_Easy();
+        else playerStat.PlayerInit_Hard();
 
         if (hpSystem != null)
         {
@@ -52,7 +53,9 @@ public class PlayerSkill : MonoBehaviour
 
             hpSystem.OnDamage += _playerHPManager.TakeDamage;
             hpSystem.OnHeal += _playerHPManager.TakeDamage;
-            hpSystem.OnDeath += GameManager.Instance.WhenGameLose;
+            //hpSystem.OnDeath += GameManager.Instance.WhenGameLose;
+            //hpSystem.OnDeath += () => { gameObject.SetActive(false); };
+
 
             mpSystem.OnUseMana += _playerMPManager.UseMana;
             mpSystem.OnFillMana += _playerMPManager.UseMana;

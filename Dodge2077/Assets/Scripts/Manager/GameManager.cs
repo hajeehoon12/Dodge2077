@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
 
     public void WhenGameLose()
     {
+        GameObject.Find("Player").gameObject.SetActive(false);
+        GameObject.Find("Player2").gameObject.SetActive(false);
+
         ShakeCamera.instance.MakeCameraShake(6f, 0.05f, 0.1f);
         StartCoroutine(PlayerDieMotion());
         AudioManager.instance.StopBGM();
@@ -67,7 +70,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator PlayerDieMotion()
     {
         yield return new WaitForSeconds(10f);
-        SceneManager.LoadScene("GameLose");
+        SceneManager.LoadScene("GameOver");
     }
 
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.VirtualTexturing;
 
 public class PlayerHPSystem : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerHPSystem : MonoBehaviour
 
     void Start()
     {
+        OnDeath += GameManager.Instance.WhenGameLose;
         CurrentHealth = MaxHealth;
     }
 
