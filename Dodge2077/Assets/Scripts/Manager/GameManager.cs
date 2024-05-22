@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     public void WhenGameLose()
     {
         GameObject.Find("Player").gameObject.SetActive(false);
-        GameObject.Find("Player2").gameObject.SetActive(false);
+        if(!DataManager.Instance.is1P) GameObject.Find("Player2").gameObject.SetActive(false); // when 2p inspect
 
         ShakeCamera.instance.MakeCameraShake(6f, 0.05f, 0.1f);
         StartCoroutine(PlayerDieMotion());
