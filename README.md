@@ -11,7 +11,9 @@ Chapter 3-1 유니티 입문주차
 6. 와이어 프레임
 
 ## 시연 영상
+[![Video Label](http://img.youtube.com/vi/pD6zggpx-tQ/0.jpg)](https://youtu.be/pD6zggpx-tQ)
 
+이미지를 클릭하면 유튜브로 넘어갑니다.
 
 ## 게임 소개
 - 프로젝트 명 : Dodge2077
