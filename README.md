@@ -8,7 +8,7 @@ Chapter 3-1 유니티 입문주차
 3. 활용 장비 및 소스
 4. 팀원
 5. 구현 기능
-6. 와이어 프레임
+6. 게임 구조
 
 ## 시연 영상
 [![Video Label](http://img.youtube.com/vi/pD6zggpx-tQ/0.jpg)](https://youtu.be/pD6zggpx-tQ)
